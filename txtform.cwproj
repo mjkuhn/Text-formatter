@@ -1,0 +1,53 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{DC69E945-19F4-4362-9CEA-590B98D3E399}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Library</OutputType>
+    <AssemblyName>txtform</AssemblyName>
+    <OutputName>txtform</OutputName>
+    <DefineConstants>_ABCDllMode_=&gt;0%3b_ABCLinkMode_=&gt;1%3b</DefineConstants>
+    <Model>Dll</Model>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>off</vid>
+    <check_stack>False</check_stack>
+    <check_index>False</check_index>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="txtform.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="txtform001.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="txtform002.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="txtform003.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="txtform004.clw">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="txtfo_RD.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="txtfo_RU.CLW">
+      <Generated>true</Generated>
+    </Compile>
+    <Compile Include="txtfo_SF.CLW">
+      <Generated>true</Generated>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+</Project>
