@@ -1,0 +1,3704 @@
+[APPLICATION]
+VERSION 34
+TODO Clarion ToDo
+DICTIONARY 'CollMgmt.dct'
+PROCEDURE TestFormat
+[COMMON]
+FROM Clarion
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('ClientSideTriggers:ActionLog', 'ClientSideTriggers:AddressTypes', |
+  'ClientSideTriggers:Addresses', 'ClientSideTriggers:Attorney', 'ClientSideTriggers:AttorneyBar', |
+  'ClientSideTriggers:BackGround', 'ClientSideTriggers:BatchDetail', 'ClientSideTriggers:BatchHeader', |
+  'ClientSideTriggers:Bonuses', 'ClientSideTriggers:Buildings', 'ClientSideTriggers:CaseDbtGarn', |
+  'ClientSideTriggers:CaseDebtors', 'ClientSideTriggers:CaseForms', 'ClientSideTriggers:Cases', |
+  'ClientSideTriggers:Clients', 'ClientSideTriggers:Community', 'ClientSideTriggers:Contacts', |
+  'ClientSideTriggers:ControlOpt', 'ClientSideTriggers:ControlOptCM', 'ClientSideTriggers:Court', |
+  'ClientSideTriggers:CourtCosts', 'ClientSideTriggers:CourtCostsType', 'ClientSideTriggers:CreditBureaus', |
+  'ClientSideTriggers:DbtAka', 'ClientSideTriggers:DbtAkaM2M', 'ClientSideTriggers:DebtorType', |
+  'ClientSideTriggers:Debtors', 'ClientSideTriggers:Diary', 'ClientSideTriggers:DiaryLog', |
+  'ClientSideTriggers:DiaryNotes', 'ClientSideTriggers:DiaryPurpose', 'ClientSideTriggers:DiaryResult', |
+  'ClientSideTriggers:EmployeeCR', 'ClientSideTriggers:EmployeeRange', 'ClientSideTriggers:Employees', |
+  'ClientSideTriggers:FilHist', 'ClientSideTriggers:FilLang', 'ClientSideTriggers:FileDebtors', |
+  'ClientSideTriggers:FileReason', 'ClientSideTriggers:Files', 'ClientSideTriggers:FinTransType', |
+  'ClientSideTriggers:ForeignCase', 'ClientSideTriggers:FormControl', 'ClientSideTriggers:FormDebtors', |
+  'ClientSideTriggers:FormDescr', 'ClientSideTriggers:FormHistNA', 'ClientSideTriggers:FormHistory', |
+  'ClientSideTriggers:FormHistoryFL', 'ClientSideTriggers:Garnishee', 'ClientSideTriggers:Jenark', |
+  'ClientSideTriggers:JenarkCommunities', 'ClientSideTriggers:LawFirm', 'ClientSideTriggers:LegalDocs', |
+  'ClientSideTriggers:LegalDocsC', 'ClientSideTriggers:LegalDocsRel', 'ClientSideTriggers:LegalDocsRelC', |
+  'ClientSideTriggers:LegalDocsText', 'ClientSideTriggers:LetterDeals', 'ClientSideTriggers:LetterFilDbt', |
+  'ClientSideTriggers:LetterNames', 'ClientSideTriggers:LicenseType', 'ClientSideTriggers:PaymentPlan', |
+  'ClientSideTriggers:Phones', 'ClientSideTriggers:PhonesType', 'ClientSideTriggers:PhonesWTC', |
+  'ClientSideTriggers:Plaintiff', 'ClientSideTriggers:PrincipalAmt', 'ClientSideTriggers:PrincipalType', |
+  'ClientSideTriggers:PromiseToPay', 'ClientSideTriggers:RMSAif', 'ClientSideTriggers:RMSAmf', |
+  'ClientSideTriggers:RMSBatch', 'ClientSideTriggers:RMSBatchM', 'ClientSideTriggers:RMSDetail', |
+  'ClientSideTriggers:RMSDetailM', 'ClientSideTriggers:RMSDetailSSN', 'ClientSideTriggers:RMSHeader', |
+  'ClientSideTriggers:RMSHeaderM', 'ClientSideTriggers:RMSLegal', 'ClientSideTriggers:RMSTran', |
+  'ClientSideTriggers:Rates', 'ClientSideTriggers:RelatedFiles', 'ClientSideTriggers:ReportClose', |
+  'ClientSideTriggers:RptTagClient', 'ClientSideTriggers:SecAreas', 'ClientSideTriggers:SecControl', |
+  'ClientSideTriggers:SecGrp', 'ClientSideTriggers:Server', 'ClientSideTriggers:ServiceType', |
+  'ClientSideTriggers:StateCodes', 'ClientSideTriggers:Summary', 'ClientSideTriggers:TextFile', |
+  'ClientSideTriggers:TranBatchDetail', 'ClientSideTriggers:TranBatchHeader', 'ClientSideTriggers:TransactionAdj', |
+  'ClientSideTriggers:Transactions', 'ClientSideTriggers:Trigger', 'ClientSideTriggers:TriggerSeries', |
+  'ClientSideTriggers:ZipCode', 'ClientSideTriggers:ZipCodeSt', 'ErrorManager', |
+  'ErrorStatusManager', 'FuzzyMatcher', 'INIManager', 'Translator')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 0
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 0
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%ProgramAuthor DEFAULT  ('')
+%ProgramIcon DEFAULT  ('')
+%MessageDescription LONG  (1)
+%GlobalExternal LONG  (1)
+%ExternalSource DEFAULT  ('Statically Linked Library (LIB)')
+%GenerateEmbedComments LONG  (0)
+%INIType DEFAULT  ('NVD_INI')
+%INIFile DEFAULT  ('Program Name.INI')
+%ININame DEFAULT  ('')
+%INIInAppDirectory LONG  (0)
+%REGRoot DEFAULT  ('REG_CLASSES_ROOT')
+%DisableINISaveWindow LONG  (0)
+%PreserveVars MULTI LONG  ()
+%PreserveVar DEPEND %PreserveVars DEFAULT TIMES 0
+
+%EnableRunTimeTranslator LONG  (0)
+%FuzzyMatchingEnabled LONG  (1)
+%IgnoreCase LONG  (1)
+%WordOnly LONG  (0)
+%WindowFrameDragging LONG  (1)
+%UseDefaultXPManifest LONG  (0)
+%GenerateXPManifest LONG  (0)
+%ExtUIXPMenuEnable LONG  (0)
+%ExtUIXPMenuColorType DEFAULT  ('XPLunaSilver')
+%ExtUIXPMenuColorLeft LONG  (15920364)
+%ExtUIXPMenuColorRight LONG  (12560039)
+%ExtUIMDITab DEFAULT  ('DISABLE')
+%ExtUIMDITabStyle DEFAULT  ('Default')
+%ExtUITabStyleGlobal DEFAULT  ('Default')
+%WindowEnableEnhanceFocus LONG  (0)
+%SelectedText LONG  (1)
+%SelectedRadio LONG  (1)
+%SelectedSpin LONG  (1)
+%SelectedCheck LONG  (1)
+%SelectedDropList LONG  (1)
+%SelectedList LONG  (1)
+%SelectedDisplayChangeColor LONG  (1)
+%SelectedColor LONG  (65535)
+%SelectedStyle LONG  (1)
+%SelectedRequired LONG  (0)
+%SelectedRequiredColor LONG  (65535)
+%SelectedDisplayBox LONG  (1)
+%SelectedDisplayBoxFillColor LONG  (65535)
+%SelectedDisplayBoxBorderColor LONG  (0)
+%SelectedDisplayBoxBorderSize DEFAULT  ('2')
+%SelectedRequiredBox LONG  (0)
+%SelectedRequiredDisplayBoxFillColor LONG  (255)
+%SelectedRequiredDisplayBoxBorderColor LONG  (0)
+%SelectedCaret LONG  (1)
+%SelectedCaretColor LONG  (8421504)
+%SelectedCaretCharacter DEFAULT  ('»')
+%SelectedCaretCharacterSeparation DEFAULT  ('8')
+%ExcludeSelectedDropList LONG  (0)
+%GlobalUseEnterInsteadTab LONG  (0)
+%GlobalUseEnterInsteadTabExclude MULTI DEFAULT  ()
+%GlobalUseEnterInsteadTabEnable DEFAULT  ('Enable')
+%GlobalUseEnterInsteadTabEnableValue DEFAULT  ('True')
+%GlobalEnableAutoSizeColumn LONG  (0)
+%GlobalEnableListFormatManager LONG  (0)
+%GlobalUserFieldListFormatManager DEFAULT  ('1')
+%TableOrigin DEFAULT  ('Application')
+%FileEquate DEFAULT  ('LFM_CFile')
+%ConfigFilePRE DEFAULT  ('CFG')
+%ConfigFileOEM LONG  (0)
+%ConfigFileTHREAD LONG  (1)
+%ConfigFileENCRYPT LONG  (0)
+%ConfigFilePASSWORD DEFAULT  ('')
+%FormatNameSize DEFAULT  ('30')
+%FormatBufferSize DEFAULT  ('5120')
+%VariableBufferSize DEFAULT  ('2048')
+%ConfigFilePath DEFAULT  ('')
+%UseConfigFileName DEFAULT  ('Default')
+%ConfigFileNAME DEFAULT  ('Formats.FDB')
+%ColonCounter DEFAULT  ('')
+%WrongSymbol DEFAULT  ('')
+%DictionaryTableOrigin FILE  ()
+%GlobalLFMSortOrderMenuText DEFAULT  ('SortOrder')
+%GlobalEnableRebase LONG  (0)
+%RBDMethod DEFAULT  ('Specify manually')
+%RBDImageBase DEFAULT  ('10000000')
+%DefaultGenerate LONG  (0)
+%DefaultRILogout LONG  (1)
+%LockRecoverTime DEFAULT  ('10')
+%DefaultThreaded DEFAULT  ('Use File Setting')
+%DefaultCreate DEFAULT  ('Use File Setting')
+%DefaultExternal DEFAULT  ('None External')
+%DefaultLocalExternal LONG  (0)
+%DefaultExternalSource DEFAULT  ('')
+%DefaultExternalAPP LONG  (0)
+%DefaultExport LONG  (0)
+%DefaultOpenMode DEFAULT  ('Share')
+%DefaultUserAccess DEFAULT  ('Read/Write')
+%DefaultOtherAccess DEFAULT  ('Deny None')
+%DefaultLazyOpen LONG  (1)
+%OverrideGenerate DEPEND %File LONG TIMES 0
+
+%OverrideRILogout DEPEND %File DEFAULT TIMES 101
+WHEN  ('') ('Use Default')
+WHEN  ('ActionLog') ('Use Default')
+WHEN  ('AddressTypes') ('Use Default')
+WHEN  ('Addresses') ('Use Default')
+WHEN  ('Attorney') ('Use Default')
+WHEN  ('AttorneyBar') ('Use Default')
+WHEN  ('BackGround') ('Use Default')
+WHEN  ('BatchDetail') ('Use Default')
+WHEN  ('BatchHeader') ('Use Default')
+WHEN  ('Bonuses') ('Use Default')
+WHEN  ('Buildings') ('Use Default')
+WHEN  ('CaseDbtGarn') ('Use Default')
+WHEN  ('CaseDebtors') ('Use Default')
+WHEN  ('CaseForms') ('Use Default')
+WHEN  ('Cases') ('Use Default')
+WHEN  ('Clients') ('Use Default')
+WHEN  ('Community') ('Use Default')
+WHEN  ('Contacts') ('Use Default')
+WHEN  ('ControlOpt') ('Use Default')
+WHEN  ('ControlOptCM') ('Use Default')
+WHEN  ('Court') ('Use Default')
+WHEN  ('CourtCosts') ('Use Default')
+WHEN  ('CourtCostsType') ('Use Default')
+WHEN  ('CreditBureaus') ('Use Default')
+WHEN  ('DbtAka') ('Use Default')
+WHEN  ('DbtAkaM2M') ('Use Default')
+WHEN  ('DebtorType') ('Use Default')
+WHEN  ('Debtors') ('Use Default')
+WHEN  ('Diary') ('Use Default')
+WHEN  ('DiaryLog') ('Use Default')
+WHEN  ('DiaryNotes') ('Use Default')
+WHEN  ('DiaryPurpose') ('Use Default')
+WHEN  ('DiaryResult') ('Use Default')
+WHEN  ('EmployeeCR') ('Use Default')
+WHEN  ('EmployeeRange') ('Use Default')
+WHEN  ('Employees') ('Use Default')
+WHEN  ('FilHist') ('Use Default')
+WHEN  ('FilLang') ('Use Default')
+WHEN  ('FileDebtors') ('Use Default')
+WHEN  ('FileReason') ('Use Default')
+WHEN  ('Files') ('Use Default')
+WHEN  ('FinTransType') ('Use Default')
+WHEN  ('ForeignCase') ('Use Default')
+WHEN  ('FormControl') ('Use Default')
+WHEN  ('FormDebtors') ('Use Default')
+WHEN  ('FormDescr') ('Use Default')
+WHEN  ('FormHistNA') ('Use Default')
+WHEN  ('FormHistory') ('Use Default')
+WHEN  ('FormHistoryFL') ('Use Default')
+WHEN  ('Garnishee') ('Use Default')
+WHEN  ('Jenark') ('Use Default')
+WHEN  ('JenarkCommunities') ('Use Default')
+WHEN  ('LawFirm') ('Use Default')
+WHEN  ('LegalDocs') ('Use Default')
+WHEN  ('LegalDocsC') ('Use Default')
+WHEN  ('LegalDocsRel') ('Use Default')
+WHEN  ('LegalDocsRelC') ('Use Default')
+WHEN  ('LegalDocsText') ('Use Default')
+WHEN  ('LetterDeals') ('Use Default')
+WHEN  ('LetterFilDbt') ('Use Default')
+WHEN  ('LetterNames') ('Use Default')
+WHEN  ('LicenseType') ('Use Default')
+WHEN  ('PaymentPlan') ('Use Default')
+WHEN  ('Phones') ('Use Default')
+WHEN  ('PhonesType') ('Use Default')
+WHEN  ('PhonesWTC') ('Use Default')
+WHEN  ('Plaintiff') ('Use Default')
+WHEN  ('PrincipalAmt') ('Use Default')
+WHEN  ('PrincipalType') ('Use Default')
+WHEN  ('PromiseToPay') ('Use Default')
+WHEN  ('RMSAif') ('Use Default')
+WHEN  ('RMSAmf') ('Use Default')
+WHEN  ('RMSBatch') ('Use Default')
+WHEN  ('RMSBatchM') ('Use Default')
+WHEN  ('RMSDetail') ('Use Default')
+WHEN  ('RMSDetailM') ('Use Default')
+WHEN  ('RMSDetailSSN') ('Use Default')
+WHEN  ('RMSHeader') ('Use Default')
+WHEN  ('RMSHeaderM') ('Use Default')
+WHEN  ('RMSLegal') ('Use Default')
+WHEN  ('RMSTran') ('Use Default')
+WHEN  ('Rates') ('Use Default')
+WHEN  ('RelatedFiles') ('Use Default')
+WHEN  ('ReportClose') ('Use Default')
+WHEN  ('RptTagClient') ('Use Default')
+WHEN  ('SecAreas') ('Use Default')
+WHEN  ('SecControl') ('Use Default')
+WHEN  ('SecGrp') ('Use Default')
+WHEN  ('Server') ('Use Default')
+WHEN  ('ServiceType') ('Use Default')
+WHEN  ('StateCodes') ('Use Default')
+WHEN  ('Summary') ('Use Default')
+WHEN  ('TextFile') ('Use Default')
+WHEN  ('TranBatchDetail') ('Use Default')
+WHEN  ('TranBatchHeader') ('Use Default')
+WHEN  ('TransactionAdj') ('Use Default')
+WHEN  ('Transactions') ('Use Default')
+WHEN  ('Trigger') ('Use Default')
+WHEN  ('TriggerSeries') ('Use Default')
+WHEN  ('ZipCode') ('Use Default')
+WHEN  ('ZipCodeSt') ('Use Default')
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 105
+WHEN  ('ClientSideTriggers:ActionLog') ('YES')
+WHEN  ('ClientSideTriggers:AddressTypes') ('YES')
+WHEN  ('ClientSideTriggers:Addresses') ('YES')
+WHEN  ('ClientSideTriggers:Attorney') ('YES')
+WHEN  ('ClientSideTriggers:AttorneyBar') ('YES')
+WHEN  ('ClientSideTriggers:BackGround') ('YES')
+WHEN  ('ClientSideTriggers:BatchDetail') ('YES')
+WHEN  ('ClientSideTriggers:BatchHeader') ('YES')
+WHEN  ('ClientSideTriggers:Bonuses') ('YES')
+WHEN  ('ClientSideTriggers:Buildings') ('YES')
+WHEN  ('ClientSideTriggers:CaseDbtGarn') ('YES')
+WHEN  ('ClientSideTriggers:CaseDebtors') ('YES')
+WHEN  ('ClientSideTriggers:CaseForms') ('YES')
+WHEN  ('ClientSideTriggers:Cases') ('YES')
+WHEN  ('ClientSideTriggers:Clients') ('YES')
+WHEN  ('ClientSideTriggers:Community') ('YES')
+WHEN  ('ClientSideTriggers:Contacts') ('YES')
+WHEN  ('ClientSideTriggers:ControlOpt') ('YES')
+WHEN  ('ClientSideTriggers:ControlOptCM') ('YES')
+WHEN  ('ClientSideTriggers:Court') ('YES')
+WHEN  ('ClientSideTriggers:CourtCosts') ('YES')
+WHEN  ('ClientSideTriggers:CourtCostsType') ('YES')
+WHEN  ('ClientSideTriggers:CreditBureaus') ('YES')
+WHEN  ('ClientSideTriggers:DbtAka') ('YES')
+WHEN  ('ClientSideTriggers:DbtAkaM2M') ('YES')
+WHEN  ('ClientSideTriggers:DebtorType') ('YES')
+WHEN  ('ClientSideTriggers:Debtors') ('YES')
+WHEN  ('ClientSideTriggers:Diary') ('YES')
+WHEN  ('ClientSideTriggers:DiaryLog') ('YES')
+WHEN  ('ClientSideTriggers:DiaryNotes') ('YES')
+WHEN  ('ClientSideTriggers:DiaryPurpose') ('YES')
+WHEN  ('ClientSideTriggers:DiaryResult') ('YES')
+WHEN  ('ClientSideTriggers:EmployeeCR') ('YES')
+WHEN  ('ClientSideTriggers:EmployeeRange') ('YES')
+WHEN  ('ClientSideTriggers:Employees') ('YES')
+WHEN  ('ClientSideTriggers:FilHist') ('YES')
+WHEN  ('ClientSideTriggers:FilLang') ('YES')
+WHEN  ('ClientSideTriggers:FileDebtors') ('YES')
+WHEN  ('ClientSideTriggers:FileReason') ('YES')
+WHEN  ('ClientSideTriggers:Files') ('YES')
+WHEN  ('ClientSideTriggers:FinTransType') ('YES')
+WHEN  ('ClientSideTriggers:ForeignCase') ('YES')
+WHEN  ('ClientSideTriggers:FormControl') ('YES')
+WHEN  ('ClientSideTriggers:FormDebtors') ('YES')
+WHEN  ('ClientSideTriggers:FormDescr') ('YES')
+WHEN  ('ClientSideTriggers:FormHistNA') ('YES')
+WHEN  ('ClientSideTriggers:FormHistory') ('YES')
+WHEN  ('ClientSideTriggers:FormHistoryFL') ('YES')
+WHEN  ('ClientSideTriggers:Garnishee') ('YES')
+WHEN  ('ClientSideTriggers:Jenark') ('YES')
+WHEN  ('ClientSideTriggers:JenarkCommunities') ('YES')
+WHEN  ('ClientSideTriggers:LawFirm') ('YES')
+WHEN  ('ClientSideTriggers:LegalDocs') ('YES')
+WHEN  ('ClientSideTriggers:LegalDocsC') ('YES')
+WHEN  ('ClientSideTriggers:LegalDocsRel') ('YES')
+WHEN  ('ClientSideTriggers:LegalDocsRelC') ('YES')
+WHEN  ('ClientSideTriggers:LegalDocsText') ('YES')
+WHEN  ('ClientSideTriggers:LetterDeals') ('YES')
+WHEN  ('ClientSideTriggers:LetterFilDbt') ('YES')
+WHEN  ('ClientSideTriggers:LetterNames') ('YES')
+WHEN  ('ClientSideTriggers:LicenseType') ('YES')
+WHEN  ('ClientSideTriggers:PaymentPlan') ('YES')
+WHEN  ('ClientSideTriggers:Phones') ('YES')
+WHEN  ('ClientSideTriggers:PhonesType') ('YES')
+WHEN  ('ClientSideTriggers:PhonesWTC') ('YES')
+WHEN  ('ClientSideTriggers:Plaintiff') ('YES')
+WHEN  ('ClientSideTriggers:PrincipalAmt') ('YES')
+WHEN  ('ClientSideTriggers:PrincipalType') ('YES')
+WHEN  ('ClientSideTriggers:PromiseToPay') ('YES')
+WHEN  ('ClientSideTriggers:RMSAif') ('YES')
+WHEN  ('ClientSideTriggers:RMSAmf') ('YES')
+WHEN  ('ClientSideTriggers:RMSBatch') ('YES')
+WHEN  ('ClientSideTriggers:RMSBatchM') ('YES')
+WHEN  ('ClientSideTriggers:RMSDetail') ('YES')
+WHEN  ('ClientSideTriggers:RMSDetailM') ('YES')
+WHEN  ('ClientSideTriggers:RMSDetailSSN') ('YES')
+WHEN  ('ClientSideTriggers:RMSHeader') ('YES')
+WHEN  ('ClientSideTriggers:RMSHeaderM') ('YES')
+WHEN  ('ClientSideTriggers:RMSLegal') ('YES')
+WHEN  ('ClientSideTriggers:RMSTran') ('YES')
+WHEN  ('ClientSideTriggers:Rates') ('YES')
+WHEN  ('ClientSideTriggers:RelatedFiles') ('YES')
+WHEN  ('ClientSideTriggers:ReportClose') ('YES')
+WHEN  ('ClientSideTriggers:RptTagClient') ('YES')
+WHEN  ('ClientSideTriggers:SecAreas') ('YES')
+WHEN  ('ClientSideTriggers:SecControl') ('YES')
+WHEN  ('ClientSideTriggers:SecGrp') ('YES')
+WHEN  ('ClientSideTriggers:Server') ('YES')
+WHEN  ('ClientSideTriggers:ServiceType') ('YES')
+WHEN  ('ClientSideTriggers:StateCodes') ('YES')
+WHEN  ('ClientSideTriggers:Summary') ('YES')
+WHEN  ('ClientSideTriggers:TextFile') ('YES')
+WHEN  ('ClientSideTriggers:TranBatchDetail') ('YES')
+WHEN  ('ClientSideTriggers:TranBatchHeader') ('YES')
+WHEN  ('ClientSideTriggers:TransactionAdj') ('YES')
+WHEN  ('ClientSideTriggers:Transactions') ('YES')
+WHEN  ('ClientSideTriggers:Trigger') ('YES')
+WHEN  ('ClientSideTriggers:TriggerSeries') ('YES')
+WHEN  ('ClientSideTriggers:ZipCode') ('YES')
+WHEN  ('ClientSideTriggers:ZipCodeSt') ('YES')
+WHEN  ('ErrorManager') ('YES')
+WHEN  ('ErrorStatusManager') ('YES')
+WHEN  ('FuzzyMatcher') ('YES')
+WHEN  ('INIManager') ('YES')
+WHEN  ('Translator') ('YES')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 0
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 105
+WHEN  ('ClientSideTriggers:ActionLog') (1)
+WHEN  ('ClientSideTriggers:AddressTypes') (1)
+WHEN  ('ClientSideTriggers:Addresses') (1)
+WHEN  ('ClientSideTriggers:Attorney') (1)
+WHEN  ('ClientSideTriggers:AttorneyBar') (1)
+WHEN  ('ClientSideTriggers:BackGround') (1)
+WHEN  ('ClientSideTriggers:BatchDetail') (1)
+WHEN  ('ClientSideTriggers:BatchHeader') (1)
+WHEN  ('ClientSideTriggers:Bonuses') (1)
+WHEN  ('ClientSideTriggers:Buildings') (1)
+WHEN  ('ClientSideTriggers:CaseDbtGarn') (1)
+WHEN  ('ClientSideTriggers:CaseDebtors') (1)
+WHEN  ('ClientSideTriggers:CaseForms') (1)
+WHEN  ('ClientSideTriggers:Cases') (1)
+WHEN  ('ClientSideTriggers:Clients') (1)
+WHEN  ('ClientSideTriggers:Community') (1)
+WHEN  ('ClientSideTriggers:Contacts') (1)
+WHEN  ('ClientSideTriggers:ControlOpt') (1)
+WHEN  ('ClientSideTriggers:ControlOptCM') (1)
+WHEN  ('ClientSideTriggers:Court') (1)
+WHEN  ('ClientSideTriggers:CourtCosts') (1)
+WHEN  ('ClientSideTriggers:CourtCostsType') (1)
+WHEN  ('ClientSideTriggers:CreditBureaus') (1)
+WHEN  ('ClientSideTriggers:DbtAka') (1)
+WHEN  ('ClientSideTriggers:DbtAkaM2M') (1)
+WHEN  ('ClientSideTriggers:DebtorType') (1)
+WHEN  ('ClientSideTriggers:Debtors') (1)
+WHEN  ('ClientSideTriggers:Diary') (1)
+WHEN  ('ClientSideTriggers:DiaryLog') (1)
+WHEN  ('ClientSideTriggers:DiaryNotes') (1)
+WHEN  ('ClientSideTriggers:DiaryPurpose') (1)
+WHEN  ('ClientSideTriggers:DiaryResult') (1)
+WHEN  ('ClientSideTriggers:EmployeeCR') (1)
+WHEN  ('ClientSideTriggers:EmployeeRange') (1)
+WHEN  ('ClientSideTriggers:Employees') (1)
+WHEN  ('ClientSideTriggers:FilHist') (1)
+WHEN  ('ClientSideTriggers:FilLang') (1)
+WHEN  ('ClientSideTriggers:FileDebtors') (1)
+WHEN  ('ClientSideTriggers:FileReason') (1)
+WHEN  ('ClientSideTriggers:Files') (1)
+WHEN  ('ClientSideTriggers:FinTransType') (1)
+WHEN  ('ClientSideTriggers:ForeignCase') (1)
+WHEN  ('ClientSideTriggers:FormControl') (1)
+WHEN  ('ClientSideTriggers:FormDebtors') (1)
+WHEN  ('ClientSideTriggers:FormDescr') (1)
+WHEN  ('ClientSideTriggers:FormHistNA') (1)
+WHEN  ('ClientSideTriggers:FormHistory') (1)
+WHEN  ('ClientSideTriggers:FormHistoryFL') (1)
+WHEN  ('ClientSideTriggers:Garnishee') (1)
+WHEN  ('ClientSideTriggers:Jenark') (1)
+WHEN  ('ClientSideTriggers:JenarkCommunities') (1)
+WHEN  ('ClientSideTriggers:LawFirm') (1)
+WHEN  ('ClientSideTriggers:LegalDocs') (1)
+WHEN  ('ClientSideTriggers:LegalDocsC') (1)
+WHEN  ('ClientSideTriggers:LegalDocsRel') (1)
+WHEN  ('ClientSideTriggers:LegalDocsRelC') (1)
+WHEN  ('ClientSideTriggers:LegalDocsText') (1)
+WHEN  ('ClientSideTriggers:LetterDeals') (1)
+WHEN  ('ClientSideTriggers:LetterFilDbt') (1)
+WHEN  ('ClientSideTriggers:LetterNames') (1)
+WHEN  ('ClientSideTriggers:LicenseType') (1)
+WHEN  ('ClientSideTriggers:PaymentPlan') (1)
+WHEN  ('ClientSideTriggers:Phones') (1)
+WHEN  ('ClientSideTriggers:PhonesType') (1)
+WHEN  ('ClientSideTriggers:PhonesWTC') (1)
+WHEN  ('ClientSideTriggers:Plaintiff') (1)
+WHEN  ('ClientSideTriggers:PrincipalAmt') (1)
+WHEN  ('ClientSideTriggers:PrincipalType') (1)
+WHEN  ('ClientSideTriggers:PromiseToPay') (1)
+WHEN  ('ClientSideTriggers:RMSAif') (1)
+WHEN  ('ClientSideTriggers:RMSAmf') (1)
+WHEN  ('ClientSideTriggers:RMSBatch') (1)
+WHEN  ('ClientSideTriggers:RMSBatchM') (1)
+WHEN  ('ClientSideTriggers:RMSDetail') (1)
+WHEN  ('ClientSideTriggers:RMSDetailM') (1)
+WHEN  ('ClientSideTriggers:RMSDetailSSN') (1)
+WHEN  ('ClientSideTriggers:RMSHeader') (1)
+WHEN  ('ClientSideTriggers:RMSHeaderM') (1)
+WHEN  ('ClientSideTriggers:RMSLegal') (1)
+WHEN  ('ClientSideTriggers:RMSTran') (1)
+WHEN  ('ClientSideTriggers:Rates') (1)
+WHEN  ('ClientSideTriggers:RelatedFiles') (1)
+WHEN  ('ClientSideTriggers:ReportClose') (1)
+WHEN  ('ClientSideTriggers:RptTagClient') (1)
+WHEN  ('ClientSideTriggers:SecAreas') (1)
+WHEN  ('ClientSideTriggers:SecControl') (1)
+WHEN  ('ClientSideTriggers:SecGrp') (1)
+WHEN  ('ClientSideTriggers:Server') (1)
+WHEN  ('ClientSideTriggers:ServiceType') (1)
+WHEN  ('ClientSideTriggers:StateCodes') (1)
+WHEN  ('ClientSideTriggers:Summary') (1)
+WHEN  ('ClientSideTriggers:TextFile') (1)
+WHEN  ('ClientSideTriggers:TranBatchDetail') (1)
+WHEN  ('ClientSideTriggers:TranBatchHeader') (1)
+WHEN  ('ClientSideTriggers:TransactionAdj') (1)
+WHEN  ('ClientSideTriggers:Transactions') (1)
+WHEN  ('ClientSideTriggers:Trigger') (1)
+WHEN  ('ClientSideTriggers:TriggerSeries') (1)
+WHEN  ('ClientSideTriggers:ZipCode') (1)
+WHEN  ('ClientSideTriggers:ZipCodeSt') (1)
+WHEN  ('ErrorManager') (1)
+WHEN  ('ErrorStatusManager') (1)
+WHEN  ('FuzzyMatcher') (1)
+WHEN  ('INIManager') (1)
+WHEN  ('Translator') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 105
+WHEN  ('ClientSideTriggers:ActionLog') (1)
+WHEN  ('ClientSideTriggers:AddressTypes') (1)
+WHEN  ('ClientSideTriggers:Addresses') (1)
+WHEN  ('ClientSideTriggers:Attorney') (1)
+WHEN  ('ClientSideTriggers:AttorneyBar') (1)
+WHEN  ('ClientSideTriggers:BackGround') (1)
+WHEN  ('ClientSideTriggers:BatchDetail') (1)
+WHEN  ('ClientSideTriggers:BatchHeader') (1)
+WHEN  ('ClientSideTriggers:Bonuses') (1)
+WHEN  ('ClientSideTriggers:Buildings') (1)
+WHEN  ('ClientSideTriggers:CaseDbtGarn') (1)
+WHEN  ('ClientSideTriggers:CaseDebtors') (1)
+WHEN  ('ClientSideTriggers:CaseForms') (1)
+WHEN  ('ClientSideTriggers:Cases') (1)
+WHEN  ('ClientSideTriggers:Clients') (1)
+WHEN  ('ClientSideTriggers:Community') (1)
+WHEN  ('ClientSideTriggers:Contacts') (1)
+WHEN  ('ClientSideTriggers:ControlOpt') (1)
+WHEN  ('ClientSideTriggers:ControlOptCM') (1)
+WHEN  ('ClientSideTriggers:Court') (1)
+WHEN  ('ClientSideTriggers:CourtCosts') (1)
+WHEN  ('ClientSideTriggers:CourtCostsType') (1)
+WHEN  ('ClientSideTriggers:CreditBureaus') (1)
+WHEN  ('ClientSideTriggers:DbtAka') (1)
+WHEN  ('ClientSideTriggers:DbtAkaM2M') (1)
+WHEN  ('ClientSideTriggers:DebtorType') (1)
+WHEN  ('ClientSideTriggers:Debtors') (1)
+WHEN  ('ClientSideTriggers:Diary') (1)
+WHEN  ('ClientSideTriggers:DiaryLog') (1)
+WHEN  ('ClientSideTriggers:DiaryNotes') (1)
+WHEN  ('ClientSideTriggers:DiaryPurpose') (1)
+WHEN  ('ClientSideTriggers:DiaryResult') (1)
+WHEN  ('ClientSideTriggers:EmployeeCR') (1)
+WHEN  ('ClientSideTriggers:EmployeeRange') (1)
+WHEN  ('ClientSideTriggers:Employees') (1)
+WHEN  ('ClientSideTriggers:FilHist') (1)
+WHEN  ('ClientSideTriggers:FilLang') (1)
+WHEN  ('ClientSideTriggers:FileDebtors') (1)
+WHEN  ('ClientSideTriggers:FileReason') (1)
+WHEN  ('ClientSideTriggers:Files') (1)
+WHEN  ('ClientSideTriggers:FinTransType') (1)
+WHEN  ('ClientSideTriggers:ForeignCase') (1)
+WHEN  ('ClientSideTriggers:FormControl') (1)
+WHEN  ('ClientSideTriggers:FormDebtors') (1)
+WHEN  ('ClientSideTriggers:FormDescr') (1)
+WHEN  ('ClientSideTriggers:FormHistNA') (1)
+WHEN  ('ClientSideTriggers:FormHistory') (1)
+WHEN  ('ClientSideTriggers:FormHistoryFL') (1)
+WHEN  ('ClientSideTriggers:Garnishee') (1)
+WHEN  ('ClientSideTriggers:Jenark') (1)
+WHEN  ('ClientSideTriggers:JenarkCommunities') (1)
+WHEN  ('ClientSideTriggers:LawFirm') (1)
+WHEN  ('ClientSideTriggers:LegalDocs') (1)
+WHEN  ('ClientSideTriggers:LegalDocsC') (1)
+WHEN  ('ClientSideTriggers:LegalDocsRel') (1)
+WHEN  ('ClientSideTriggers:LegalDocsRelC') (1)
+WHEN  ('ClientSideTriggers:LegalDocsText') (1)
+WHEN  ('ClientSideTriggers:LetterDeals') (1)
+WHEN  ('ClientSideTriggers:LetterFilDbt') (1)
+WHEN  ('ClientSideTriggers:LetterNames') (1)
+WHEN  ('ClientSideTriggers:LicenseType') (1)
+WHEN  ('ClientSideTriggers:PaymentPlan') (1)
+WHEN  ('ClientSideTriggers:Phones') (1)
+WHEN  ('ClientSideTriggers:PhonesType') (1)
+WHEN  ('ClientSideTriggers:PhonesWTC') (1)
+WHEN  ('ClientSideTriggers:Plaintiff') (1)
+WHEN  ('ClientSideTriggers:PrincipalAmt') (1)
+WHEN  ('ClientSideTriggers:PrincipalType') (1)
+WHEN  ('ClientSideTriggers:PromiseToPay') (1)
+WHEN  ('ClientSideTriggers:RMSAif') (1)
+WHEN  ('ClientSideTriggers:RMSAmf') (1)
+WHEN  ('ClientSideTriggers:RMSBatch') (1)
+WHEN  ('ClientSideTriggers:RMSBatchM') (1)
+WHEN  ('ClientSideTriggers:RMSDetail') (1)
+WHEN  ('ClientSideTriggers:RMSDetailM') (1)
+WHEN  ('ClientSideTriggers:RMSDetailSSN') (1)
+WHEN  ('ClientSideTriggers:RMSHeader') (1)
+WHEN  ('ClientSideTriggers:RMSHeaderM') (1)
+WHEN  ('ClientSideTriggers:RMSLegal') (1)
+WHEN  ('ClientSideTriggers:RMSTran') (1)
+WHEN  ('ClientSideTriggers:Rates') (1)
+WHEN  ('ClientSideTriggers:RelatedFiles') (1)
+WHEN  ('ClientSideTriggers:ReportClose') (1)
+WHEN  ('ClientSideTriggers:RptTagClient') (1)
+WHEN  ('ClientSideTriggers:SecAreas') (1)
+WHEN  ('ClientSideTriggers:SecControl') (1)
+WHEN  ('ClientSideTriggers:SecGrp') (1)
+WHEN  ('ClientSideTriggers:Server') (1)
+WHEN  ('ClientSideTriggers:ServiceType') (1)
+WHEN  ('ClientSideTriggers:StateCodes') (1)
+WHEN  ('ClientSideTriggers:Summary') (1)
+WHEN  ('ClientSideTriggers:TextFile') (1)
+WHEN  ('ClientSideTriggers:TranBatchDetail') (1)
+WHEN  ('ClientSideTriggers:TranBatchHeader') (1)
+WHEN  ('ClientSideTriggers:TransactionAdj') (1)
+WHEN  ('ClientSideTriggers:Transactions') (1)
+WHEN  ('ClientSideTriggers:Trigger') (1)
+WHEN  ('ClientSideTriggers:TriggerSeries') (1)
+WHEN  ('ClientSideTriggers:ZipCode') (1)
+WHEN  ('ClientSideTriggers:ZipCodeSt') (1)
+WHEN  ('ErrorManager') (1)
+WHEN  ('ErrorStatusManager') (1)
+WHEN  ('FuzzyMatcher') (1)
+WHEN  ('INIManager') (1)
+WHEN  ('Translator') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 105
+WHEN  ('ClientSideTriggers:ActionLog') ('ADOBlob')
+WHEN  ('ClientSideTriggers:AddressTypes') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Addresses') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Attorney') ('ADOBlob')
+WHEN  ('ClientSideTriggers:AttorneyBar') ('ADOBlob')
+WHEN  ('ClientSideTriggers:BackGround') ('ADOBlob')
+WHEN  ('ClientSideTriggers:BatchDetail') ('ADOBlob')
+WHEN  ('ClientSideTriggers:BatchHeader') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Bonuses') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Buildings') ('ADOBlob')
+WHEN  ('ClientSideTriggers:CaseDbtGarn') ('ADOBlob')
+WHEN  ('ClientSideTriggers:CaseDebtors') ('ADOBlob')
+WHEN  ('ClientSideTriggers:CaseForms') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Cases') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Clients') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Community') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Contacts') ('ADOBlob')
+WHEN  ('ClientSideTriggers:ControlOpt') ('ADOBlob')
+WHEN  ('ClientSideTriggers:ControlOptCM') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Court') ('ADOBlob')
+WHEN  ('ClientSideTriggers:CourtCosts') ('ADOBlob')
+WHEN  ('ClientSideTriggers:CourtCostsType') ('ADOBlob')
+WHEN  ('ClientSideTriggers:CreditBureaus') ('ADOBlob')
+WHEN  ('ClientSideTriggers:DbtAka') ('ADOBlob')
+WHEN  ('ClientSideTriggers:DbtAkaM2M') ('ADOBlob')
+WHEN  ('ClientSideTriggers:DebtorType') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Debtors') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Diary') ('ADOBlob')
+WHEN  ('ClientSideTriggers:DiaryLog') ('ADOBlob')
+WHEN  ('ClientSideTriggers:DiaryNotes') ('ADOBlob')
+WHEN  ('ClientSideTriggers:DiaryPurpose') ('ADOBlob')
+WHEN  ('ClientSideTriggers:DiaryResult') ('ADOBlob')
+WHEN  ('ClientSideTriggers:EmployeeCR') ('ADOBlob')
+WHEN  ('ClientSideTriggers:EmployeeRange') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Employees') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FilHist') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FilLang') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FileDebtors') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FileReason') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Files') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FinTransType') ('ADOBlob')
+WHEN  ('ClientSideTriggers:ForeignCase') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FormControl') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FormDebtors') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FormDescr') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FormHistNA') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FormHistory') ('ADOBlob')
+WHEN  ('ClientSideTriggers:FormHistoryFL') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Garnishee') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Jenark') ('ADOBlob')
+WHEN  ('ClientSideTriggers:JenarkCommunities') ('ADOBlob')
+WHEN  ('ClientSideTriggers:LawFirm') ('ADOBlob')
+WHEN  ('ClientSideTriggers:LegalDocs') ('ADOBlob')
+WHEN  ('ClientSideTriggers:LegalDocsC') ('ADOBlob')
+WHEN  ('ClientSideTriggers:LegalDocsRel') ('ADOBlob')
+WHEN  ('ClientSideTriggers:LegalDocsRelC') ('ADOBlob')
+WHEN  ('ClientSideTriggers:LegalDocsText') ('ADOBlob')
+WHEN  ('ClientSideTriggers:LetterDeals') ('ADOBlob')
+WHEN  ('ClientSideTriggers:LetterFilDbt') ('ADOBlob')
+WHEN  ('ClientSideTriggers:LetterNames') ('ADOBlob')
+WHEN  ('ClientSideTriggers:LicenseType') ('ADOBlob')
+WHEN  ('ClientSideTriggers:PaymentPlan') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Phones') ('ADOBlob')
+WHEN  ('ClientSideTriggers:PhonesType') ('ADOBlob')
+WHEN  ('ClientSideTriggers:PhonesWTC') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Plaintiff') ('ADOBlob')
+WHEN  ('ClientSideTriggers:PrincipalAmt') ('ADOBlob')
+WHEN  ('ClientSideTriggers:PrincipalType') ('ADOBlob')
+WHEN  ('ClientSideTriggers:PromiseToPay') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSAif') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSAmf') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSBatch') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSBatchM') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSDetail') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSDetailM') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSDetailSSN') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSHeader') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSHeaderM') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSLegal') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RMSTran') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Rates') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RelatedFiles') ('ADOBlob')
+WHEN  ('ClientSideTriggers:ReportClose') ('ADOBlob')
+WHEN  ('ClientSideTriggers:RptTagClient') ('ADOBlob')
+WHEN  ('ClientSideTriggers:SecAreas') ('ADOBlob')
+WHEN  ('ClientSideTriggers:SecControl') ('ADOBlob')
+WHEN  ('ClientSideTriggers:SecGrp') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Server') ('ADOBlob')
+WHEN  ('ClientSideTriggers:ServiceType') ('ADOBlob')
+WHEN  ('ClientSideTriggers:StateCodes') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Summary') ('ADOBlob')
+WHEN  ('ClientSideTriggers:TextFile') ('ADOBlob')
+WHEN  ('ClientSideTriggers:TranBatchDetail') ('')
+WHEN  ('ClientSideTriggers:TranBatchHeader') ('')
+WHEN  ('ClientSideTriggers:TransactionAdj') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Transactions') ('ADOBlob')
+WHEN  ('ClientSideTriggers:Trigger') ('ADOBlob')
+WHEN  ('ClientSideTriggers:TriggerSeries') ('ADOBlob')
+WHEN  ('ClientSideTriggers:ZipCode') ('ADOBlob')
+WHEN  ('ClientSideTriggers:ZipCodeSt') ('ADOBlob')
+WHEN  ('ErrorManager') ('')
+WHEN  ('ErrorStatusManager') ('')
+WHEN  ('FuzzyMatcher') ('')
+WHEN  ('INIManager') ('')
+WHEN  ('Translator') ('')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 105
+WHEN  ('ClientSideTriggers:ActionLog') (0)
+WHEN  ('ClientSideTriggers:AddressTypes') (0)
+WHEN  ('ClientSideTriggers:Addresses') (0)
+WHEN  ('ClientSideTriggers:Attorney') (0)
+WHEN  ('ClientSideTriggers:AttorneyBar') (0)
+WHEN  ('ClientSideTriggers:BackGround') (0)
+WHEN  ('ClientSideTriggers:BatchDetail') (0)
+WHEN  ('ClientSideTriggers:BatchHeader') (0)
+WHEN  ('ClientSideTriggers:Bonuses') (0)
+WHEN  ('ClientSideTriggers:Buildings') (0)
+WHEN  ('ClientSideTriggers:CaseDbtGarn') (0)
+WHEN  ('ClientSideTriggers:CaseDebtors') (0)
+WHEN  ('ClientSideTriggers:CaseForms') (0)
+WHEN  ('ClientSideTriggers:Cases') (0)
+WHEN  ('ClientSideTriggers:Clients') (0)
+WHEN  ('ClientSideTriggers:Community') (0)
+WHEN  ('ClientSideTriggers:Contacts') (0)
+WHEN  ('ClientSideTriggers:ControlOpt') (0)
+WHEN  ('ClientSideTriggers:ControlOptCM') (0)
+WHEN  ('ClientSideTriggers:Court') (0)
+WHEN  ('ClientSideTriggers:CourtCosts') (0)
+WHEN  ('ClientSideTriggers:CourtCostsType') (0)
+WHEN  ('ClientSideTriggers:CreditBureaus') (0)
+WHEN  ('ClientSideTriggers:DbtAka') (0)
+WHEN  ('ClientSideTriggers:DbtAkaM2M') (0)
+WHEN  ('ClientSideTriggers:DebtorType') (0)
+WHEN  ('ClientSideTriggers:Debtors') (0)
+WHEN  ('ClientSideTriggers:Diary') (0)
+WHEN  ('ClientSideTriggers:DiaryLog') (0)
+WHEN  ('ClientSideTriggers:DiaryNotes') (0)
+WHEN  ('ClientSideTriggers:DiaryPurpose') (0)
+WHEN  ('ClientSideTriggers:DiaryResult') (0)
+WHEN  ('ClientSideTriggers:EmployeeCR') (0)
+WHEN  ('ClientSideTriggers:EmployeeRange') (0)
+WHEN  ('ClientSideTriggers:Employees') (0)
+WHEN  ('ClientSideTriggers:FilHist') (0)
+WHEN  ('ClientSideTriggers:FilLang') (0)
+WHEN  ('ClientSideTriggers:FileDebtors') (0)
+WHEN  ('ClientSideTriggers:FileReason') (0)
+WHEN  ('ClientSideTriggers:Files') (0)
+WHEN  ('ClientSideTriggers:FinTransType') (0)
+WHEN  ('ClientSideTriggers:ForeignCase') (0)
+WHEN  ('ClientSideTriggers:FormControl') (0)
+WHEN  ('ClientSideTriggers:FormDebtors') (0)
+WHEN  ('ClientSideTriggers:FormDescr') (0)
+WHEN  ('ClientSideTriggers:FormHistNA') (0)
+WHEN  ('ClientSideTriggers:FormHistory') (0)
+WHEN  ('ClientSideTriggers:FormHistoryFL') (0)
+WHEN  ('ClientSideTriggers:Garnishee') (0)
+WHEN  ('ClientSideTriggers:Jenark') (0)
+WHEN  ('ClientSideTriggers:JenarkCommunities') (0)
+WHEN  ('ClientSideTriggers:LawFirm') (0)
+WHEN  ('ClientSideTriggers:LegalDocs') (0)
+WHEN  ('ClientSideTriggers:LegalDocsC') (0)
+WHEN  ('ClientSideTriggers:LegalDocsRel') (0)
+WHEN  ('ClientSideTriggers:LegalDocsRelC') (0)
+WHEN  ('ClientSideTriggers:LegalDocsText') (0)
+WHEN  ('ClientSideTriggers:LetterDeals') (0)
+WHEN  ('ClientSideTriggers:LetterFilDbt') (0)
+WHEN  ('ClientSideTriggers:LetterNames') (0)
+WHEN  ('ClientSideTriggers:LicenseType') (0)
+WHEN  ('ClientSideTriggers:PaymentPlan') (0)
+WHEN  ('ClientSideTriggers:Phones') (0)
+WHEN  ('ClientSideTriggers:PhonesType') (0)
+WHEN  ('ClientSideTriggers:PhonesWTC') (0)
+WHEN  ('ClientSideTriggers:Plaintiff') (0)
+WHEN  ('ClientSideTriggers:PrincipalAmt') (0)
+WHEN  ('ClientSideTriggers:PrincipalType') (0)
+WHEN  ('ClientSideTriggers:PromiseToPay') (0)
+WHEN  ('ClientSideTriggers:RMSAif') (0)
+WHEN  ('ClientSideTriggers:RMSAmf') (0)
+WHEN  ('ClientSideTriggers:RMSBatch') (0)
+WHEN  ('ClientSideTriggers:RMSBatchM') (0)
+WHEN  ('ClientSideTriggers:RMSDetail') (0)
+WHEN  ('ClientSideTriggers:RMSDetailM') (0)
+WHEN  ('ClientSideTriggers:RMSDetailSSN') (0)
+WHEN  ('ClientSideTriggers:RMSHeader') (0)
+WHEN  ('ClientSideTriggers:RMSHeaderM') (0)
+WHEN  ('ClientSideTriggers:RMSLegal') (0)
+WHEN  ('ClientSideTriggers:RMSTran') (0)
+WHEN  ('ClientSideTriggers:Rates') (0)
+WHEN  ('ClientSideTriggers:RelatedFiles') (0)
+WHEN  ('ClientSideTriggers:ReportClose') (0)
+WHEN  ('ClientSideTriggers:RptTagClient') (0)
+WHEN  ('ClientSideTriggers:SecAreas') (0)
+WHEN  ('ClientSideTriggers:SecControl') (0)
+WHEN  ('ClientSideTriggers:SecGrp') (0)
+WHEN  ('ClientSideTriggers:Server') (0)
+WHEN  ('ClientSideTriggers:ServiceType') (0)
+WHEN  ('ClientSideTriggers:StateCodes') (0)
+WHEN  ('ClientSideTriggers:Summary') (0)
+WHEN  ('ClientSideTriggers:TextFile') (0)
+WHEN  ('ClientSideTriggers:TranBatchDetail') (0)
+WHEN  ('ClientSideTriggers:TranBatchHeader') (0)
+WHEN  ('ClientSideTriggers:TransactionAdj') (0)
+WHEN  ('ClientSideTriggers:Transactions') (0)
+WHEN  ('ClientSideTriggers:Trigger') (0)
+WHEN  ('ClientSideTriggers:TriggerSeries') (0)
+WHEN  ('ClientSideTriggers:ZipCode') (0)
+WHEN  ('ClientSideTriggers:ZipCodeSt') (0)
+WHEN  ('ErrorManager') (0)
+WHEN  ('ErrorStatusManager') (0)
+WHEN  ('FuzzyMatcher') (0)
+WHEN  ('INIManager') (0)
+WHEN  ('Translator') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 3
+WHEN  ('ClientSideTriggers:ZipCodeSt')TIMES 0
+WHEN  ('FuzzyMatcher')TIMES 0
+WHEN  ('Translator')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 3
+WHEN  ('ClientSideTriggers:ZipCodeSt')TIMES 0
+WHEN  ('FuzzyMatcher')TIMES 0
+WHEN  ('Translator')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%OverrideThreaded DEPEND %File DEFAULT TIMES 101
+WHEN  ('') ('Use Default')
+WHEN  ('ActionLog') ('Use Default')
+WHEN  ('AddressTypes') ('Use Default')
+WHEN  ('Addresses') ('Use Default')
+WHEN  ('Attorney') ('Use Default')
+WHEN  ('AttorneyBar') ('Use Default')
+WHEN  ('BackGround') ('Use Default')
+WHEN  ('BatchDetail') ('Use Default')
+WHEN  ('BatchHeader') ('Use Default')
+WHEN  ('Bonuses') ('Use Default')
+WHEN  ('Buildings') ('Use Default')
+WHEN  ('CaseDbtGarn') ('Use Default')
+WHEN  ('CaseDebtors') ('Use Default')
+WHEN  ('CaseForms') ('Use Default')
+WHEN  ('Cases') ('Use Default')
+WHEN  ('Clients') ('Use Default')
+WHEN  ('Community') ('Use Default')
+WHEN  ('Contacts') ('Use Default')
+WHEN  ('ControlOpt') ('Use Default')
+WHEN  ('ControlOptCM') ('Use Default')
+WHEN  ('Court') ('Use Default')
+WHEN  ('CourtCosts') ('Use Default')
+WHEN  ('CourtCostsType') ('Use Default')
+WHEN  ('CreditBureaus') ('Use Default')
+WHEN  ('DbtAka') ('Use Default')
+WHEN  ('DbtAkaM2M') ('Use Default')
+WHEN  ('DebtorType') ('Use Default')
+WHEN  ('Debtors') ('Use Default')
+WHEN  ('Diary') ('Use Default')
+WHEN  ('DiaryLog') ('Use Default')
+WHEN  ('DiaryNotes') ('Use Default')
+WHEN  ('DiaryPurpose') ('Use Default')
+WHEN  ('DiaryResult') ('Use Default')
+WHEN  ('EmployeeCR') ('Use Default')
+WHEN  ('EmployeeRange') ('Use Default')
+WHEN  ('Employees') ('Use Default')
+WHEN  ('FilHist') ('Use Default')
+WHEN  ('FilLang') ('Use Default')
+WHEN  ('FileDebtors') ('Use Default')
+WHEN  ('FileReason') ('Use Default')
+WHEN  ('Files') ('Use Default')
+WHEN  ('FinTransType') ('Use Default')
+WHEN  ('ForeignCase') ('Use Default')
+WHEN  ('FormControl') ('Use Default')
+WHEN  ('FormDebtors') ('Use Default')
+WHEN  ('FormDescr') ('Use Default')
+WHEN  ('FormHistNA') ('Use Default')
+WHEN  ('FormHistory') ('Use Default')
+WHEN  ('FormHistoryFL') ('Use Default')
+WHEN  ('Garnishee') ('Use Default')
+WHEN  ('Jenark') ('Use Default')
+WHEN  ('JenarkCommunities') ('Use Default')
+WHEN  ('LawFirm') ('Use Default')
+WHEN  ('LegalDocs') ('Use Default')
+WHEN  ('LegalDocsC') ('Use Default')
+WHEN  ('LegalDocsRel') ('Use Default')
+WHEN  ('LegalDocsRelC') ('Use Default')
+WHEN  ('LegalDocsText') ('Use Default')
+WHEN  ('LetterDeals') ('Use Default')
+WHEN  ('LetterFilDbt') ('Use Default')
+WHEN  ('LetterNames') ('Use Default')
+WHEN  ('LicenseType') ('Use Default')
+WHEN  ('PaymentPlan') ('Use Default')
+WHEN  ('Phones') ('Use Default')
+WHEN  ('PhonesType') ('Use Default')
+WHEN  ('PhonesWTC') ('Use Default')
+WHEN  ('Plaintiff') ('Use Default')
+WHEN  ('PrincipalAmt') ('Use Default')
+WHEN  ('PrincipalType') ('Use Default')
+WHEN  ('PromiseToPay') ('Use Default')
+WHEN  ('RMSAif') ('Use Default')
+WHEN  ('RMSAmf') ('Use Default')
+WHEN  ('RMSBatch') ('Use Default')
+WHEN  ('RMSBatchM') ('Use Default')
+WHEN  ('RMSDetail') ('Use Default')
+WHEN  ('RMSDetailM') ('Use Default')
+WHEN  ('RMSDetailSSN') ('Use Default')
+WHEN  ('RMSHeader') ('Use Default')
+WHEN  ('RMSHeaderM') ('Use Default')
+WHEN  ('RMSLegal') ('Use Default')
+WHEN  ('RMSTran') ('Use Default')
+WHEN  ('Rates') ('Use Default')
+WHEN  ('RelatedFiles') ('Use Default')
+WHEN  ('ReportClose') ('Use Default')
+WHEN  ('RptTagClient') ('Use Default')
+WHEN  ('SecAreas') ('Use Default')
+WHEN  ('SecControl') ('Use Default')
+WHEN  ('SecGrp') ('Use Default')
+WHEN  ('Server') ('Use Default')
+WHEN  ('ServiceType') ('Use Default')
+WHEN  ('StateCodes') ('Use Default')
+WHEN  ('Summary') ('Use Default')
+WHEN  ('TextFile') ('Use Default')
+WHEN  ('TranBatchDetail') ('Use Default')
+WHEN  ('TranBatchHeader') ('Use Default')
+WHEN  ('TransactionAdj') ('Use Default')
+WHEN  ('Transactions') ('Use Default')
+WHEN  ('Trigger') ('Use Default')
+WHEN  ('TriggerSeries') ('Use Default')
+WHEN  ('ZipCode') ('Use Default')
+WHEN  ('ZipCodeSt') ('Use Default')
+
+%OverrideCreate DEPEND %File DEFAULT TIMES 101
+WHEN  ('') ('Use Default')
+WHEN  ('ActionLog') ('Use Default')
+WHEN  ('AddressTypes') ('Use Default')
+WHEN  ('Addresses') ('Use Default')
+WHEN  ('Attorney') ('Use Default')
+WHEN  ('AttorneyBar') ('Use Default')
+WHEN  ('BackGround') ('Use Default')
+WHEN  ('BatchDetail') ('Use Default')
+WHEN  ('BatchHeader') ('Use Default')
+WHEN  ('Bonuses') ('Use Default')
+WHEN  ('Buildings') ('Use Default')
+WHEN  ('CaseDbtGarn') ('Use Default')
+WHEN  ('CaseDebtors') ('Use Default')
+WHEN  ('CaseForms') ('Use Default')
+WHEN  ('Cases') ('Use Default')
+WHEN  ('Clients') ('Use Default')
+WHEN  ('Community') ('Use Default')
+WHEN  ('Contacts') ('Use Default')
+WHEN  ('ControlOpt') ('Use Default')
+WHEN  ('ControlOptCM') ('Use Default')
+WHEN  ('Court') ('Use Default')
+WHEN  ('CourtCosts') ('Use Default')
+WHEN  ('CourtCostsType') ('Use Default')
+WHEN  ('CreditBureaus') ('Use Default')
+WHEN  ('DbtAka') ('Use Default')
+WHEN  ('DbtAkaM2M') ('Use Default')
+WHEN  ('DebtorType') ('Use Default')
+WHEN  ('Debtors') ('Use Default')
+WHEN  ('Diary') ('Use Default')
+WHEN  ('DiaryLog') ('Use Default')
+WHEN  ('DiaryNotes') ('Use Default')
+WHEN  ('DiaryPurpose') ('Use Default')
+WHEN  ('DiaryResult') ('Use Default')
+WHEN  ('EmployeeCR') ('Use Default')
+WHEN  ('EmployeeRange') ('Use Default')
+WHEN  ('Employees') ('Use Default')
+WHEN  ('FilHist') ('Use Default')
+WHEN  ('FilLang') ('Use Default')
+WHEN  ('FileDebtors') ('Use Default')
+WHEN  ('FileReason') ('Use Default')
+WHEN  ('Files') ('Use Default')
+WHEN  ('FinTransType') ('Use Default')
+WHEN  ('ForeignCase') ('Use Default')
+WHEN  ('FormControl') ('Use Default')
+WHEN  ('FormDebtors') ('Use Default')
+WHEN  ('FormDescr') ('Use Default')
+WHEN  ('FormHistNA') ('Use Default')
+WHEN  ('FormHistory') ('Use Default')
+WHEN  ('FormHistoryFL') ('Use Default')
+WHEN  ('Garnishee') ('Use Default')
+WHEN  ('Jenark') ('Use Default')
+WHEN  ('JenarkCommunities') ('Use Default')
+WHEN  ('LawFirm') ('Use Default')
+WHEN  ('LegalDocs') ('Use Default')
+WHEN  ('LegalDocsC') ('Use Default')
+WHEN  ('LegalDocsRel') ('Use Default')
+WHEN  ('LegalDocsRelC') ('Use Default')
+WHEN  ('LegalDocsText') ('Use Default')
+WHEN  ('LetterDeals') ('Use Default')
+WHEN  ('LetterFilDbt') ('Use Default')
+WHEN  ('LetterNames') ('Use Default')
+WHEN  ('LicenseType') ('Use Default')
+WHEN  ('PaymentPlan') ('Use Default')
+WHEN  ('Phones') ('Use Default')
+WHEN  ('PhonesType') ('Use Default')
+WHEN  ('PhonesWTC') ('Use Default')
+WHEN  ('Plaintiff') ('Use Default')
+WHEN  ('PrincipalAmt') ('Use Default')
+WHEN  ('PrincipalType') ('Use Default')
+WHEN  ('PromiseToPay') ('Use Default')
+WHEN  ('RMSAif') ('Use Default')
+WHEN  ('RMSAmf') ('Use Default')
+WHEN  ('RMSBatch') ('Use Default')
+WHEN  ('RMSBatchM') ('Use Default')
+WHEN  ('RMSDetail') ('Use Default')
+WHEN  ('RMSDetailM') ('Use Default')
+WHEN  ('RMSDetailSSN') ('Use Default')
+WHEN  ('RMSHeader') ('Use Default')
+WHEN  ('RMSHeaderM') ('Use Default')
+WHEN  ('RMSLegal') ('Use Default')
+WHEN  ('RMSTran') ('Use Default')
+WHEN  ('Rates') ('Use Default')
+WHEN  ('RelatedFiles') ('Use Default')
+WHEN  ('ReportClose') ('Use Default')
+WHEN  ('RptTagClient') ('Use Default')
+WHEN  ('SecAreas') ('Use Default')
+WHEN  ('SecControl') ('Use Default')
+WHEN  ('SecGrp') ('Use Default')
+WHEN  ('Server') ('Use Default')
+WHEN  ('ServiceType') ('Use Default')
+WHEN  ('StateCodes') ('Use Default')
+WHEN  ('Summary') ('Use Default')
+WHEN  ('TextFile') ('Use Default')
+WHEN  ('TranBatchDetail') ('Use Default')
+WHEN  ('TranBatchHeader') ('Use Default')
+WHEN  ('TransactionAdj') ('Use Default')
+WHEN  ('Transactions') ('Use Default')
+WHEN  ('Trigger') ('Use Default')
+WHEN  ('TriggerSeries') ('Use Default')
+WHEN  ('ZipCode') ('Use Default')
+WHEN  ('ZipCodeSt') ('Use Default')
+
+%OverrideExternal DEPEND %File DEFAULT TIMES 101
+WHEN  ('') ('Use Default')
+WHEN  ('ActionLog') ('Use Default')
+WHEN  ('AddressTypes') ('Use Default')
+WHEN  ('Addresses') ('Use Default')
+WHEN  ('Attorney') ('Use Default')
+WHEN  ('AttorneyBar') ('Use Default')
+WHEN  ('BackGround') ('Use Default')
+WHEN  ('BatchDetail') ('Use Default')
+WHEN  ('BatchHeader') ('Use Default')
+WHEN  ('Bonuses') ('Use Default')
+WHEN  ('Buildings') ('Use Default')
+WHEN  ('CaseDbtGarn') ('Use Default')
+WHEN  ('CaseDebtors') ('Use Default')
+WHEN  ('CaseForms') ('Use Default')
+WHEN  ('Cases') ('Use Default')
+WHEN  ('Clients') ('Use Default')
+WHEN  ('Community') ('Use Default')
+WHEN  ('Contacts') ('Use Default')
+WHEN  ('ControlOpt') ('Use Default')
+WHEN  ('ControlOptCM') ('Use Default')
+WHEN  ('Court') ('Use Default')
+WHEN  ('CourtCosts') ('Use Default')
+WHEN  ('CourtCostsType') ('Use Default')
+WHEN  ('CreditBureaus') ('Use Default')
+WHEN  ('DbtAka') ('Use Default')
+WHEN  ('DbtAkaM2M') ('Use Default')
+WHEN  ('DebtorType') ('Use Default')
+WHEN  ('Debtors') ('Use Default')
+WHEN  ('Diary') ('Use Default')
+WHEN  ('DiaryLog') ('Use Default')
+WHEN  ('DiaryNotes') ('Use Default')
+WHEN  ('DiaryPurpose') ('Use Default')
+WHEN  ('DiaryResult') ('Use Default')
+WHEN  ('EmployeeCR') ('Use Default')
+WHEN  ('EmployeeRange') ('Use Default')
+WHEN  ('Employees') ('Use Default')
+WHEN  ('FilHist') ('Use Default')
+WHEN  ('FilLang') ('Use Default')
+WHEN  ('FileDebtors') ('Use Default')
+WHEN  ('FileReason') ('Use Default')
+WHEN  ('Files') ('Use Default')
+WHEN  ('FinTransType') ('Use Default')
+WHEN  ('ForeignCase') ('Use Default')
+WHEN  ('FormControl') ('Use Default')
+WHEN  ('FormDebtors') ('Use Default')
+WHEN  ('FormDescr') ('Use Default')
+WHEN  ('FormHistNA') ('Use Default')
+WHEN  ('FormHistory') ('Use Default')
+WHEN  ('FormHistoryFL') ('Use Default')
+WHEN  ('Garnishee') ('Use Default')
+WHEN  ('Jenark') ('Use Default')
+WHEN  ('JenarkCommunities') ('Use Default')
+WHEN  ('LawFirm') ('Use Default')
+WHEN  ('LegalDocs') ('Use Default')
+WHEN  ('LegalDocsC') ('Use Default')
+WHEN  ('LegalDocsRel') ('Use Default')
+WHEN  ('LegalDocsRelC') ('Use Default')
+WHEN  ('LegalDocsText') ('Use Default')
+WHEN  ('LetterDeals') ('Use Default')
+WHEN  ('LetterFilDbt') ('Use Default')
+WHEN  ('LetterNames') ('Use Default')
+WHEN  ('LicenseType') ('Use Default')
+WHEN  ('PaymentPlan') ('Use Default')
+WHEN  ('Phones') ('Use Default')
+WHEN  ('PhonesType') ('Use Default')
+WHEN  ('PhonesWTC') ('Use Default')
+WHEN  ('Plaintiff') ('Use Default')
+WHEN  ('PrincipalAmt') ('Use Default')
+WHEN  ('PrincipalType') ('Use Default')
+WHEN  ('PromiseToPay') ('Use Default')
+WHEN  ('RMSAif') ('Use Default')
+WHEN  ('RMSAmf') ('Use Default')
+WHEN  ('RMSBatch') ('Use Default')
+WHEN  ('RMSBatchM') ('Use Default')
+WHEN  ('RMSDetail') ('Use Default')
+WHEN  ('RMSDetailM') ('Use Default')
+WHEN  ('RMSDetailSSN') ('Use Default')
+WHEN  ('RMSHeader') ('Use Default')
+WHEN  ('RMSHeaderM') ('Use Default')
+WHEN  ('RMSLegal') ('Use Default')
+WHEN  ('RMSTran') ('Use Default')
+WHEN  ('Rates') ('Use Default')
+WHEN  ('RelatedFiles') ('Use Default')
+WHEN  ('ReportClose') ('Use Default')
+WHEN  ('RptTagClient') ('Use Default')
+WHEN  ('SecAreas') ('Use Default')
+WHEN  ('SecControl') ('Use Default')
+WHEN  ('SecGrp') ('Use Default')
+WHEN  ('Server') ('Use Default')
+WHEN  ('ServiceType') ('Use Default')
+WHEN  ('StateCodes') ('Use Default')
+WHEN  ('Summary') ('Use Default')
+WHEN  ('TextFile') ('Use Default')
+WHEN  ('TranBatchDetail') ('Use Default')
+WHEN  ('TranBatchHeader') ('Use Default')
+WHEN  ('TransactionAdj') ('Use Default')
+WHEN  ('Transactions') ('Use Default')
+WHEN  ('Trigger') ('Use Default')
+WHEN  ('TriggerSeries') ('Use Default')
+WHEN  ('ZipCode') ('Use Default')
+WHEN  ('ZipCodeSt') ('Use Default')
+
+%OverrideLocalExternal DEPEND %File LONG TIMES 0
+
+%OverrideExternalSource DEPEND %File DEFAULT TIMES 0
+
+%OverrideExternalAPP DEPEND %File LONG TIMES 0
+
+%OverrideExport DEPEND %File LONG TIMES 0
+
+%FileDeclarationMode DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationType DEPEND %File LONG TIMES 0
+
+%FileDeclarationThread DEPEND %File LONG TIMES 0
+
+%FileDeclarationBindable DEPEND %File LONG TIMES 0
+
+%FileDeclarationName DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationOver DEPEND %File DEFAULT TIMES 0
+
+%OverrideOpenMode DEPEND %File DEFAULT TIMES 101
+WHEN  ('') ('Use Default')
+WHEN  ('ActionLog') ('Use Default')
+WHEN  ('AddressTypes') ('Use Default')
+WHEN  ('Addresses') ('Use Default')
+WHEN  ('Attorney') ('Use Default')
+WHEN  ('AttorneyBar') ('Use Default')
+WHEN  ('BackGround') ('Use Default')
+WHEN  ('BatchDetail') ('Use Default')
+WHEN  ('BatchHeader') ('Use Default')
+WHEN  ('Bonuses') ('Use Default')
+WHEN  ('Buildings') ('Use Default')
+WHEN  ('CaseDbtGarn') ('Use Default')
+WHEN  ('CaseDebtors') ('Use Default')
+WHEN  ('CaseForms') ('Use Default')
+WHEN  ('Cases') ('Use Default')
+WHEN  ('Clients') ('Use Default')
+WHEN  ('Community') ('Use Default')
+WHEN  ('Contacts') ('Use Default')
+WHEN  ('ControlOpt') ('Use Default')
+WHEN  ('ControlOptCM') ('Use Default')
+WHEN  ('Court') ('Use Default')
+WHEN  ('CourtCosts') ('Use Default')
+WHEN  ('CourtCostsType') ('Use Default')
+WHEN  ('CreditBureaus') ('Use Default')
+WHEN  ('DbtAka') ('Use Default')
+WHEN  ('DbtAkaM2M') ('Use Default')
+WHEN  ('DebtorType') ('Use Default')
+WHEN  ('Debtors') ('Use Default')
+WHEN  ('Diary') ('Use Default')
+WHEN  ('DiaryLog') ('Use Default')
+WHEN  ('DiaryNotes') ('Use Default')
+WHEN  ('DiaryPurpose') ('Use Default')
+WHEN  ('DiaryResult') ('Use Default')
+WHEN  ('EmployeeCR') ('Use Default')
+WHEN  ('EmployeeRange') ('Use Default')
+WHEN  ('Employees') ('Use Default')
+WHEN  ('FilHist') ('Use Default')
+WHEN  ('FilLang') ('Use Default')
+WHEN  ('FileDebtors') ('Use Default')
+WHEN  ('FileReason') ('Use Default')
+WHEN  ('Files') ('Use Default')
+WHEN  ('FinTransType') ('Use Default')
+WHEN  ('ForeignCase') ('Use Default')
+WHEN  ('FormControl') ('Use Default')
+WHEN  ('FormDebtors') ('Use Default')
+WHEN  ('FormDescr') ('Use Default')
+WHEN  ('FormHistNA') ('Use Default')
+WHEN  ('FormHistory') ('Use Default')
+WHEN  ('FormHistoryFL') ('Use Default')
+WHEN  ('Garnishee') ('Use Default')
+WHEN  ('Jenark') ('Use Default')
+WHEN  ('JenarkCommunities') ('Use Default')
+WHEN  ('LawFirm') ('Use Default')
+WHEN  ('LegalDocs') ('Use Default')
+WHEN  ('LegalDocsC') ('Use Default')
+WHEN  ('LegalDocsRel') ('Use Default')
+WHEN  ('LegalDocsRelC') ('Use Default')
+WHEN  ('LegalDocsText') ('Use Default')
+WHEN  ('LetterDeals') ('Use Default')
+WHEN  ('LetterFilDbt') ('Use Default')
+WHEN  ('LetterNames') ('Use Default')
+WHEN  ('LicenseType') ('Use Default')
+WHEN  ('PaymentPlan') ('Use Default')
+WHEN  ('Phones') ('Use Default')
+WHEN  ('PhonesType') ('Use Default')
+WHEN  ('PhonesWTC') ('Use Default')
+WHEN  ('Plaintiff') ('Use Default')
+WHEN  ('PrincipalAmt') ('Use Default')
+WHEN  ('PrincipalType') ('Use Default')
+WHEN  ('PromiseToPay') ('Use Default')
+WHEN  ('RMSAif') ('Use Default')
+WHEN  ('RMSAmf') ('Use Default')
+WHEN  ('RMSBatch') ('Use Default')
+WHEN  ('RMSBatchM') ('Use Default')
+WHEN  ('RMSDetail') ('Use Default')
+WHEN  ('RMSDetailM') ('Use Default')
+WHEN  ('RMSDetailSSN') ('Use Default')
+WHEN  ('RMSHeader') ('Use Default')
+WHEN  ('RMSHeaderM') ('Use Default')
+WHEN  ('RMSLegal') ('Use Default')
+WHEN  ('RMSTran') ('Use Default')
+WHEN  ('Rates') ('Use Default')
+WHEN  ('RelatedFiles') ('Use Default')
+WHEN  ('ReportClose') ('Use Default')
+WHEN  ('RptTagClient') ('Use Default')
+WHEN  ('SecAreas') ('Use Default')
+WHEN  ('SecControl') ('Use Default')
+WHEN  ('SecGrp') ('Use Default')
+WHEN  ('Server') ('Use Default')
+WHEN  ('ServiceType') ('Use Default')
+WHEN  ('StateCodes') ('Use Default')
+WHEN  ('Summary') ('Use Default')
+WHEN  ('TextFile') ('Use Default')
+WHEN  ('TranBatchDetail') ('Use Default')
+WHEN  ('TranBatchHeader') ('Use Default')
+WHEN  ('TransactionAdj') ('Use Default')
+WHEN  ('Transactions') ('Use Default')
+WHEN  ('Trigger') ('Use Default')
+WHEN  ('TriggerSeries') ('Use Default')
+WHEN  ('ZipCode') ('Use Default')
+WHEN  ('ZipCodeSt') ('Use Default')
+
+%OverrideUserAccess DEPEND %File DEFAULT TIMES 101
+WHEN  ('') ('Use Default')
+WHEN  ('ActionLog') ('Use Default')
+WHEN  ('AddressTypes') ('Use Default')
+WHEN  ('Addresses') ('Use Default')
+WHEN  ('Attorney') ('Use Default')
+WHEN  ('AttorneyBar') ('Use Default')
+WHEN  ('BackGround') ('Use Default')
+WHEN  ('BatchDetail') ('Use Default')
+WHEN  ('BatchHeader') ('Use Default')
+WHEN  ('Bonuses') ('Use Default')
+WHEN  ('Buildings') ('Use Default')
+WHEN  ('CaseDbtGarn') ('Use Default')
+WHEN  ('CaseDebtors') ('Use Default')
+WHEN  ('CaseForms') ('Use Default')
+WHEN  ('Cases') ('Use Default')
+WHEN  ('Clients') ('Use Default')
+WHEN  ('Community') ('Use Default')
+WHEN  ('Contacts') ('Use Default')
+WHEN  ('ControlOpt') ('Use Default')
+WHEN  ('ControlOptCM') ('Use Default')
+WHEN  ('Court') ('Use Default')
+WHEN  ('CourtCosts') ('Use Default')
+WHEN  ('CourtCostsType') ('Use Default')
+WHEN  ('CreditBureaus') ('Use Default')
+WHEN  ('DbtAka') ('Use Default')
+WHEN  ('DbtAkaM2M') ('Use Default')
+WHEN  ('DebtorType') ('Use Default')
+WHEN  ('Debtors') ('Use Default')
+WHEN  ('Diary') ('Use Default')
+WHEN  ('DiaryLog') ('Use Default')
+WHEN  ('DiaryNotes') ('Use Default')
+WHEN  ('DiaryPurpose') ('Use Default')
+WHEN  ('DiaryResult') ('Use Default')
+WHEN  ('EmployeeCR') ('Use Default')
+WHEN  ('EmployeeRange') ('Use Default')
+WHEN  ('Employees') ('Use Default')
+WHEN  ('FilHist') ('Use Default')
+WHEN  ('FilLang') ('Use Default')
+WHEN  ('FileDebtors') ('Use Default')
+WHEN  ('FileReason') ('Use Default')
+WHEN  ('Files') ('Use Default')
+WHEN  ('FinTransType') ('Use Default')
+WHEN  ('ForeignCase') ('Use Default')
+WHEN  ('FormControl') ('Use Default')
+WHEN  ('FormDebtors') ('Use Default')
+WHEN  ('FormDescr') ('Use Default')
+WHEN  ('FormHistNA') ('Use Default')
+WHEN  ('FormHistory') ('Use Default')
+WHEN  ('FormHistoryFL') ('Use Default')
+WHEN  ('Garnishee') ('Use Default')
+WHEN  ('Jenark') ('Use Default')
+WHEN  ('JenarkCommunities') ('Use Default')
+WHEN  ('LawFirm') ('Use Default')
+WHEN  ('LegalDocs') ('Use Default')
+WHEN  ('LegalDocsC') ('Use Default')
+WHEN  ('LegalDocsRel') ('Use Default')
+WHEN  ('LegalDocsRelC') ('Use Default')
+WHEN  ('LegalDocsText') ('Use Default')
+WHEN  ('LetterDeals') ('Use Default')
+WHEN  ('LetterFilDbt') ('Use Default')
+WHEN  ('LetterNames') ('Use Default')
+WHEN  ('LicenseType') ('Use Default')
+WHEN  ('PaymentPlan') ('Use Default')
+WHEN  ('Phones') ('Use Default')
+WHEN  ('PhonesType') ('Use Default')
+WHEN  ('PhonesWTC') ('Use Default')
+WHEN  ('Plaintiff') ('Use Default')
+WHEN  ('PrincipalAmt') ('Use Default')
+WHEN  ('PrincipalType') ('Use Default')
+WHEN  ('PromiseToPay') ('Use Default')
+WHEN  ('RMSAif') ('Use Default')
+WHEN  ('RMSAmf') ('Use Default')
+WHEN  ('RMSBatch') ('Use Default')
+WHEN  ('RMSBatchM') ('Use Default')
+WHEN  ('RMSDetail') ('Use Default')
+WHEN  ('RMSDetailM') ('Use Default')
+WHEN  ('RMSDetailSSN') ('Use Default')
+WHEN  ('RMSHeader') ('Use Default')
+WHEN  ('RMSHeaderM') ('Use Default')
+WHEN  ('RMSLegal') ('Use Default')
+WHEN  ('RMSTran') ('Use Default')
+WHEN  ('Rates') ('Use Default')
+WHEN  ('RelatedFiles') ('Use Default')
+WHEN  ('ReportClose') ('Use Default')
+WHEN  ('RptTagClient') ('Use Default')
+WHEN  ('SecAreas') ('Use Default')
+WHEN  ('SecControl') ('Use Default')
+WHEN  ('SecGrp') ('Use Default')
+WHEN  ('Server') ('Use Default')
+WHEN  ('ServiceType') ('Use Default')
+WHEN  ('StateCodes') ('Use Default')
+WHEN  ('Summary') ('Use Default')
+WHEN  ('TextFile') ('Use Default')
+WHEN  ('TranBatchDetail') ('Use Default')
+WHEN  ('TranBatchHeader') ('Use Default')
+WHEN  ('TransactionAdj') ('Use Default')
+WHEN  ('Transactions') ('Use Default')
+WHEN  ('Trigger') ('Use Default')
+WHEN  ('TriggerSeries') ('Use Default')
+WHEN  ('ZipCode') ('Use Default')
+WHEN  ('ZipCodeSt') ('Use Default')
+
+%OverrideOtherAccess DEPEND %File DEFAULT TIMES 101
+WHEN  ('') ('Use Default')
+WHEN  ('ActionLog') ('Use Default')
+WHEN  ('AddressTypes') ('Use Default')
+WHEN  ('Addresses') ('Use Default')
+WHEN  ('Attorney') ('Use Default')
+WHEN  ('AttorneyBar') ('Use Default')
+WHEN  ('BackGround') ('Use Default')
+WHEN  ('BatchDetail') ('Use Default')
+WHEN  ('BatchHeader') ('Use Default')
+WHEN  ('Bonuses') ('Use Default')
+WHEN  ('Buildings') ('Use Default')
+WHEN  ('CaseDbtGarn') ('Use Default')
+WHEN  ('CaseDebtors') ('Use Default')
+WHEN  ('CaseForms') ('Use Default')
+WHEN  ('Cases') ('Use Default')
+WHEN  ('Clients') ('Use Default')
+WHEN  ('Community') ('Use Default')
+WHEN  ('Contacts') ('Use Default')
+WHEN  ('ControlOpt') ('Use Default')
+WHEN  ('ControlOptCM') ('Use Default')
+WHEN  ('Court') ('Use Default')
+WHEN  ('CourtCosts') ('Use Default')
+WHEN  ('CourtCostsType') ('Use Default')
+WHEN  ('CreditBureaus') ('Use Default')
+WHEN  ('DbtAka') ('Use Default')
+WHEN  ('DbtAkaM2M') ('Use Default')
+WHEN  ('DebtorType') ('Use Default')
+WHEN  ('Debtors') ('Use Default')
+WHEN  ('Diary') ('Use Default')
+WHEN  ('DiaryLog') ('Use Default')
+WHEN  ('DiaryNotes') ('Use Default')
+WHEN  ('DiaryPurpose') ('Use Default')
+WHEN  ('DiaryResult') ('Use Default')
+WHEN  ('EmployeeCR') ('Use Default')
+WHEN  ('EmployeeRange') ('Use Default')
+WHEN  ('Employees') ('Use Default')
+WHEN  ('FilHist') ('Use Default')
+WHEN  ('FilLang') ('Use Default')
+WHEN  ('FileDebtors') ('Use Default')
+WHEN  ('FileReason') ('Use Default')
+WHEN  ('Files') ('Use Default')
+WHEN  ('FinTransType') ('Use Default')
+WHEN  ('ForeignCase') ('Use Default')
+WHEN  ('FormControl') ('Use Default')
+WHEN  ('FormDebtors') ('Use Default')
+WHEN  ('FormDescr') ('Use Default')
+WHEN  ('FormHistNA') ('Use Default')
+WHEN  ('FormHistory') ('Use Default')
+WHEN  ('FormHistoryFL') ('Use Default')
+WHEN  ('Garnishee') ('Use Default')
+WHEN  ('Jenark') ('Use Default')
+WHEN  ('JenarkCommunities') ('Use Default')
+WHEN  ('LawFirm') ('Use Default')
+WHEN  ('LegalDocs') ('Use Default')
+WHEN  ('LegalDocsC') ('Use Default')
+WHEN  ('LegalDocsRel') ('Use Default')
+WHEN  ('LegalDocsRelC') ('Use Default')
+WHEN  ('LegalDocsText') ('Use Default')
+WHEN  ('LetterDeals') ('Use Default')
+WHEN  ('LetterFilDbt') ('Use Default')
+WHEN  ('LetterNames') ('Use Default')
+WHEN  ('LicenseType') ('Use Default')
+WHEN  ('PaymentPlan') ('Use Default')
+WHEN  ('Phones') ('Use Default')
+WHEN  ('PhonesType') ('Use Default')
+WHEN  ('PhonesWTC') ('Use Default')
+WHEN  ('Plaintiff') ('Use Default')
+WHEN  ('PrincipalAmt') ('Use Default')
+WHEN  ('PrincipalType') ('Use Default')
+WHEN  ('PromiseToPay') ('Use Default')
+WHEN  ('RMSAif') ('Use Default')
+WHEN  ('RMSAmf') ('Use Default')
+WHEN  ('RMSBatch') ('Use Default')
+WHEN  ('RMSBatchM') ('Use Default')
+WHEN  ('RMSDetail') ('Use Default')
+WHEN  ('RMSDetailM') ('Use Default')
+WHEN  ('RMSDetailSSN') ('Use Default')
+WHEN  ('RMSHeader') ('Use Default')
+WHEN  ('RMSHeaderM') ('Use Default')
+WHEN  ('RMSLegal') ('Use Default')
+WHEN  ('RMSTran') ('Use Default')
+WHEN  ('Rates') ('Use Default')
+WHEN  ('RelatedFiles') ('Use Default')
+WHEN  ('ReportClose') ('Use Default')
+WHEN  ('RptTagClient') ('Use Default')
+WHEN  ('SecAreas') ('Use Default')
+WHEN  ('SecControl') ('Use Default')
+WHEN  ('SecGrp') ('Use Default')
+WHEN  ('Server') ('Use Default')
+WHEN  ('ServiceType') ('Use Default')
+WHEN  ('StateCodes') ('Use Default')
+WHEN  ('Summary') ('Use Default')
+WHEN  ('TextFile') ('Use Default')
+WHEN  ('TranBatchDetail') ('Use Default')
+WHEN  ('TranBatchHeader') ('Use Default')
+WHEN  ('TransactionAdj') ('Use Default')
+WHEN  ('Transactions') ('Use Default')
+WHEN  ('Trigger') ('Use Default')
+WHEN  ('TriggerSeries') ('Use Default')
+WHEN  ('ZipCode') ('Use Default')
+WHEN  ('ZipCodeSt') ('Use Default')
+
+%OverrideLazyOpen DEPEND %File DEFAULT TIMES 0
+
+%StandardExternalModule DEPEND %Module LONG TIMES 1
+WHEN  ('txtform.clw') (1)
+
+%NoGenerateGlobals LONG  (0)
+%WindowManagerType DEFAULT  ('WindowManager')
+%ResetOnGainFocus LONG  (0)
+%AutoToolbar LONG  (1)
+%AutoRefresh LONG  (1)
+%ImageClass DEFAULT  ('ImageManager')
+%ErrorStatusManagerType DEFAULT  ('ErrorStatusClass')
+%ErrorManagerType DEFAULT  ('ErrorClass')
+%DefaultErrorCategory DEFAULT  ('ABC')
+%AllowSelectCopy LONG  (0)
+%StoreErrorHistory LONG  (0)
+%LimitStoredHistory LONG  (0)
+%ErrorHistoryThreshold DEFAULT  ('300')
+%HistoryViewTrigger DEFAULT  ('Level:Fatal')
+%PopupClass DEFAULT  ('PopupClass')
+%SelectFileClass DEFAULT  ('SelectFileClass')
+%ResizerType DEFAULT  ('WindowResizeClass')
+%ResizerDeFaultFindParents LONG  (1)
+%ResizerDefaultOptimizeMoves LONG  (1)
+%ResizerDefaultOptimizeRedraws LONG  (1)
+%INIClass DEFAULT  ('INIClass')
+%RunTimeTranslatorType DEFAULT  ('TranslatorClass')
+%ExtractionFilename DEFAULT  ('')
+%TranslationGroups MULTI LONG  ()
+%TranslationFile DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%TranslationGroup DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%CalendarManagerType DEFAULT  ('CalendarClass')
+%GlobalChangeColor LONG  (0)
+%GlobalColorSunday LONG  (255)
+%GlobalColorSaturday LONG  (255)
+%GlobalColorHoliday LONG  (32768)
+%GlobalColorOther LONG  (0)
+%GlobalSelectOnClose DEFAULT  ('Select')
+%GlobalUseABCClasess LONG  (1)
+%FileManagerType DEFAULT  ('FileManager')
+%ViewManagerType DEFAULT  ('ViewManager')
+%RelationManagerType DEFAULT  ('RelationManager')
+%BrowserType DEFAULT  ('BrowseClass')
+%ActiveInvisible LONG  (0)
+%AllowUnfilled LONG  (0)
+%RetainRow LONG  (1)
+%FileDropManagerType DEFAULT  ('FileDropClass')
+%FileDropComboManagerType DEFAULT  ('FileDropComboClass')
+%FormVCRManagerType DEFAULT  ('FormVCRClass')
+%BrowseEIPManagerType DEFAULT  ('BrowseEIPManager')
+%EditInPlaceInterface DEFAULT  ('Original')
+%EditInPlaceType DEFAULT  ('EditClass')
+%EditInPlaceEntryType DEFAULT  ('EditEntryClass')
+%EditInPlaceTextType DEFAULT  ('EditTextClass')
+%EditInPlaceCheckType DEFAULT  ('EditCheckClass')
+%EditInPlaceSpinType DEFAULT  ('EditSpinClass')
+%EditInPlaceDropListType DEFAULT  ('EditDropListClass')
+%EditInPlaceDropComboType DEFAULT  ('EditDropComboClass')
+%EditInPlaceColorType DEFAULT  ('EditColorClass')
+%EditInPlaceFileType DEFAULT  ('EditFileClass')
+%EditInPlaceFontType DEFAULT  ('EditFontClass')
+%EditInPlaceMultiSelectType DEFAULT  ('EditMultiSelectClass')
+%EditInPlaceCalendarType DEFAULT  ('EditCalendarClass')
+%EditInPlaceLookupType DEFAULT  ('EditLookupClass')
+%EditInPlaceOtherType DEFAULT  ('EditEntryClass')
+%QBEFormType DEFAULT  ('QueryFormClass')
+%QBEFormVisualType DEFAULT  ('QueryFormVisual')
+%QBEListType DEFAULT  ('QueryListClass')
+%QBEListVisualType DEFAULT  ('QueryListVisual')
+%StepManagerType DEFAULT  ('StepClass')
+%StepManagerLongType DEFAULT  ('StepLongClass')
+%StepManagerRealType DEFAULT  ('StepRealClass')
+%StepManagerStringType DEFAULT  ('StepStringClass')
+%StepManagerCustomType DEFAULT  ('StepCustomClass')
+%StepLocatorType DEFAULT  ('StepLocatorClass')
+%EntryLocatorType DEFAULT  ('EntryLocatorClass')
+%IncrementalLocatorType DEFAULT  ('IncrementalLocatorClass')
+%FilteredLocatorType DEFAULT  ('FilterLocatorClass')
+%FuzzyMatcherClass DEFAULT  ('FuzzyClass')
+%GridClass DEFAULT  ('GridClass')
+%SidebarClass DEFAULT  ('SidebarClass')
+%ProcessType DEFAULT  ('ProcessClass')
+%PrintPreviewType DEFAULT  ('PrintPreviewClass')
+%ReportManagerType DEFAULT  ('ReportManager')
+%ReportTargetSelectorManagerType DEFAULT  ('ReportTargetSelectorClass')
+%BreakManagerType DEFAULT  ('BreakManagerClass')
+%AsciiViewerClass DEFAULT  ('AsciiViewerClass')
+%AsciiSearchClass DEFAULT  ('AsciiSearchClass')
+%AsciiPrintClass DEFAULT  ('AsciiPrintClass')
+%AsciiFileManagerType DEFAULT  ('AsciiFileClass')
+%ToolbarClass DEFAULT  ('ToolbarClass')
+%ToolbarListBoxType DEFAULT  ('ToolbarListboxClass')
+%ToolbarRelTreeType DEFAULT  ('ToolbarReltreeClass')
+%ToolbarUpdateClassType DEFAULT  ('ToolbarUpdateClass')
+%ToolbarFormVCRType DEFAULT  ('ToolbarFormVCRClass')
+%OverrideAbcSettings LONG  (0)
+%AbcSourceLocation DEFAULT  ('LINK')
+%AbcLibraryName DEFAULT  ('')
+%AppTemplateFamily DEFAULT  ('CLARION')
+%CWTemplateVersion DEFAULT  ('v9.0')
+%ABCVersion DEFAULT  ('6300')
+%INIActive LONG  (0)
+%GlobalReportPreviewMode DEFAULT  ('Procedure')
+%GlobalReportPreview DEFAULT  ('ReportPreview')
+%GlobalBrowseActiveInvisible LONG  (1)
+%DefaultCloseFile DEFAULT  ('Close the File')
+%WarnOnLogoutError LONG  (1)
+%TriggersSupportEnableGlobal LONG  (0)
+%TriggersManagerType DEFAULT  ('TriggerManager')
+%OverrideCloseFile DEPEND %File DEFAULT TIMES 101
+WHEN  ('') ('Use Default')
+WHEN  ('ActionLog') ('Use Default')
+WHEN  ('AddressTypes') ('Use Default')
+WHEN  ('Addresses') ('Use Default')
+WHEN  ('Attorney') ('Use Default')
+WHEN  ('AttorneyBar') ('Use Default')
+WHEN  ('BackGround') ('Use Default')
+WHEN  ('BatchDetail') ('Use Default')
+WHEN  ('BatchHeader') ('Use Default')
+WHEN  ('Bonuses') ('Use Default')
+WHEN  ('Buildings') ('Use Default')
+WHEN  ('CaseDbtGarn') ('Use Default')
+WHEN  ('CaseDebtors') ('Use Default')
+WHEN  ('CaseForms') ('Use Default')
+WHEN  ('Cases') ('Use Default')
+WHEN  ('Clients') ('Use Default')
+WHEN  ('Community') ('Use Default')
+WHEN  ('Contacts') ('Use Default')
+WHEN  ('ControlOpt') ('Use Default')
+WHEN  ('ControlOptCM') ('Use Default')
+WHEN  ('Court') ('Use Default')
+WHEN  ('CourtCosts') ('Use Default')
+WHEN  ('CourtCostsType') ('Use Default')
+WHEN  ('CreditBureaus') ('Use Default')
+WHEN  ('DbtAka') ('Use Default')
+WHEN  ('DbtAkaM2M') ('Use Default')
+WHEN  ('DebtorType') ('Use Default')
+WHEN  ('Debtors') ('Use Default')
+WHEN  ('Diary') ('Use Default')
+WHEN  ('DiaryLog') ('Use Default')
+WHEN  ('DiaryNotes') ('Use Default')
+WHEN  ('DiaryPurpose') ('Use Default')
+WHEN  ('DiaryResult') ('Use Default')
+WHEN  ('EmployeeCR') ('Use Default')
+WHEN  ('EmployeeRange') ('Use Default')
+WHEN  ('Employees') ('Use Default')
+WHEN  ('FilHist') ('Use Default')
+WHEN  ('FilLang') ('Use Default')
+WHEN  ('FileDebtors') ('Use Default')
+WHEN  ('FileReason') ('Use Default')
+WHEN  ('Files') ('Use Default')
+WHEN  ('FinTransType') ('Use Default')
+WHEN  ('ForeignCase') ('Use Default')
+WHEN  ('FormControl') ('Use Default')
+WHEN  ('FormDebtors') ('Use Default')
+WHEN  ('FormDescr') ('Use Default')
+WHEN  ('FormHistNA') ('Use Default')
+WHEN  ('FormHistory') ('Use Default')
+WHEN  ('FormHistoryFL') ('Use Default')
+WHEN  ('Garnishee') ('Use Default')
+WHEN  ('Jenark') ('Use Default')
+WHEN  ('JenarkCommunities') ('Use Default')
+WHEN  ('LawFirm') ('Use Default')
+WHEN  ('LegalDocs') ('Use Default')
+WHEN  ('LegalDocsC') ('Use Default')
+WHEN  ('LegalDocsRel') ('Use Default')
+WHEN  ('LegalDocsRelC') ('Use Default')
+WHEN  ('LegalDocsText') ('Use Default')
+WHEN  ('LetterDeals') ('Use Default')
+WHEN  ('LetterFilDbt') ('Use Default')
+WHEN  ('LetterNames') ('Use Default')
+WHEN  ('LicenseType') ('Use Default')
+WHEN  ('PaymentPlan') ('Use Default')
+WHEN  ('Phones') ('Use Default')
+WHEN  ('PhonesType') ('Use Default')
+WHEN  ('PhonesWTC') ('Use Default')
+WHEN  ('Plaintiff') ('Use Default')
+WHEN  ('PrincipalAmt') ('Use Default')
+WHEN  ('PrincipalType') ('Use Default')
+WHEN  ('PromiseToPay') ('Use Default')
+WHEN  ('RMSAif') ('Use Default')
+WHEN  ('RMSAmf') ('Use Default')
+WHEN  ('RMSBatch') ('Use Default')
+WHEN  ('RMSBatchM') ('Use Default')
+WHEN  ('RMSDetail') ('Use Default')
+WHEN  ('RMSDetailM') ('Use Default')
+WHEN  ('RMSDetailSSN') ('Use Default')
+WHEN  ('RMSHeader') ('Use Default')
+WHEN  ('RMSHeaderM') ('Use Default')
+WHEN  ('RMSLegal') ('Use Default')
+WHEN  ('RMSTran') ('Use Default')
+WHEN  ('Rates') ('Use Default')
+WHEN  ('RelatedFiles') ('Use Default')
+WHEN  ('ReportClose') ('Use Default')
+WHEN  ('RptTagClient') ('Use Default')
+WHEN  ('SecAreas') ('Use Default')
+WHEN  ('SecControl') ('Use Default')
+WHEN  ('SecGrp') ('Use Default')
+WHEN  ('Server') ('Use Default')
+WHEN  ('ServiceType') ('Use Default')
+WHEN  ('StateCodes') ('Use Default')
+WHEN  ('Summary') ('Use Default')
+WHEN  ('TextFile') ('Use Default')
+WHEN  ('TranBatchDetail') ('Use Default')
+WHEN  ('TranBatchHeader') ('Use Default')
+WHEN  ('TransactionAdj') ('Use Default')
+WHEN  ('Transactions') ('Use Default')
+WHEN  ('Trigger') ('Use Default')
+WHEN  ('TriggerSeries') ('Use Default')
+WHEN  ('ZipCode') ('Use Default')
+WHEN  ('ZipCodeSt') ('Use Default')
+
+%CWBrowseEIPManagerType DEFAULT  ('CWEIPManager')
+%GlobalUseDefaultFileManager LONG  (1)
+%GlobalFileManagerClass DEFAULT  ('')
+%GlobalUseDefaultRelationManager LONG  (1)
+%GlobalRelationManagerClass DEFAULT  ('')
+%OverrideUseDefaultFileManager DEPEND %File LONG TIMES 0
+
+%OverrideFileManagerClass DEPEND %File DEFAULT TIMES 0
+
+%OverrideUseDefaultRelationManager DEPEND %File LONG TIMES 0
+
+%OverrideRelationManagerClass DEPEND %File DEFAULT TIMES 0
+
+%INIProgramIniLocation DEFAULT  ('APPDIR')
+%INICSIDLDirectory DEFAULT  ('SV:CSIDL_PERSONAL')
+%CSIDLCompanyDir DEFAULT  ('')
+%CSIDLProductDir DEFAULT  ('')
+%CSIDLCreate LONG  (0)
+%ButtonMarginsCompatibility LONG  (0)
+%LinkGenerateXPManifest LONG  (0)
+%AddVistaXPManifest LONG  (0)
+%VistaManifestExecutionLevel DEFAULT  ('asInvoker')
+%VistaManifestUIAccess LONG  (0)
+%NoThemedControlsDependency LONG  (0)
+%W7ManifestVista LONG  (1)
+%W7ManifestW7 LONG  (1)
+%W7ManifestW8 LONG  (1)
+%ForceMakeTransparentXPManifest LONG  (0)
+%ForceMakeColorXPManifest LONG  (0)
+%ForceSHEETNoTheme LONG  (0)
+%ExtUIXPMenuEnableGlobal LONG  (0)
+%ExtUIXPMenuColorTypeGlobal DEFAULT  ('OFF')
+%ExtUIXPMenuDisableImageBar LONG  (1)
+%ExtUIXPMenuEnableRuntime LONG  (0)
+%ExtUIXPMenuRuntimeVar DEFAULT  ('G:cmd')
+%ExtUIXPMenuColorLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorRightGlobal LONG  (12560039)
+%ExtUIXPMenuColorSelectionBarLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectionBarRightGlobal LONG  (15920364)
+%ExtUIXPMenuSelVertical LONG  (1)
+%ExtUIXPMenuColorSelectionBorderGlobal LONG  (15920364)
+%ExtUIXPMenuColorHotLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorHotRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectedLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorSelectedRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorNormalBarLeftGlobal LONG  (15920364)
+%ExtUIXPMenuColorNormalBarRightGlobal LONG  (15920364)
+%ExtUIXPMenuColorItemBackgroundGlobal LONG  (-2147483644)
+%ExtUIXPMenuColorNormalText LONG  (0)
+%ExtUIXPMenuColorSelectedText LONG  (0)
+%ExtUIXPMenuColorHotText LONG  (0)
+%ExtUIXPMenuFlat LONG  (1)
+%ExtUIXPMenuShowImageBar LONG  (0)
+%ExtUIXPMenuSeparator3D LONG  (1)
+%ExtUIXPMenuSeparatorFull LONG  (0)
+%ExtUIXPMenuVerticalLine LONG  (1)
+%ExtUIMDITabGlobal DEFAULT  ('DISABLE')
+%ExtUIMDITabStyleGlobal DEFAULT  ('Default')
+%GlobalInterLine DEFAULT  ('0')
+%GeneratePropDataPath LONG  (0)
+%PropDataPathLocation DEFAULT  ('CSIDLLIKEINI')
+%DataPathCSIDLDirectory DEFAULT  ('SV:CSIDL_PERSONAL')
+%DataPathCSIDLCompanyDir DEFAULT  ('')
+%DataPathCSIDLProductDir DEFAULT  ('')
+%DataPathCSIDLCreate LONG  (0)
+%DataPathOtherDirectory DEFAULT  ('')
+%DataPathOtherDirectoryCreate LONG  (0)
+[PERSIST]
+%GenerationCompleted DEPEND %Module DEFAULT TIMES 5
+WHEN  ('txtform.clw') ('1')
+WHEN  ('txtform001.clw') ('1')
+WHEN  ('txtform002.clw') ('1')
+WHEN  ('txtform003.clw') ('1')
+WHEN  ('txtform004.clw') ('1')
+
+%LastTarget32 DEFAULT  ('1')
+%LastProgramExtension DEFAULT  ('DLL')
+%LastApplicationDebug DEFAULT  ('')
+%LastApplicationLocalLibrary DEFAULT  ('')
+[PROJECT]
+#noedit
+#system win32 dll
+#model clarion dll
+#set RELEASE = on
+#compile "txtform.clw"
+#compile "txtform001.clw"
+#compile "txtform002.clw"
+#compile "txtform003.clw"
+#compile "txtform004.clw"
+#compile "txtfo_RD.CLW"
+#compile "txtfo_RU.CLW"
+#compile "txtfo_SF.CLW"
+#link "txtform.DLL"
+[PROGRAM]
+[COMMON]
+FROM Clarion Clarion
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('G : cmd:'),USE(?G:cmd:Prompt)
+! ENTRY(@n3),USE(G:cmd)
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:cmd)
+G:cmd                    BYTE,STATIC
+!!> GUID('cfaeb254-2f89-47c5-96bb-172428f06395'),PROMPT('G : cmd:'),HEADER('G : cmd'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : blank:'),USE(?G:blank:Prompt)
+! ENTRY(@n3),USE(G:blank)
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:blank)
+G:blank                  BYTE,STATIC
+!!> GUID('1cdafbb2-8da5-4d5f-93a8-917d85afe16e'),PROMPT('G : blank:'),HEADER('G : blank'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : plus:'),USE(?G:plus:Prompt)
+! ENTRY(@n3),USE(G:plus)
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:plus)
+G:plus                   BYTE,STATIC
+!!> GUID('1c02bea0-3c89-466c-86f0-cc81ae32b763'),PROMPT('G : plus:'),HEADER('G : plus'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : minus:'),USE(?G:minus:Prompt)
+! ENTRY(@n3),USE(G:minus)
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:minus)
+G:minus                  BYTE,STATIC
+!!> GUID('96b1d2b5-8e41-43a6-9668-c9a39e24104a'),PROMPT('G : minus:'),HEADER('G : minus'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : CR:'),USE(?G:CR:Prompt)
+! ENTRY(@n3),USE(G:CR)
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:CR)
+G:CR                     BYTE,STATIC
+!!> GUID('66cb71dc-4ba9-4f06-bc27-590e819a7920'),PROMPT('G : CR:'),HEADER('G : CR'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : LF:'),USE(?G:LF:Prompt)
+! ENTRY(@n3),USE(G:LF)
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:LF)
+G:LF                     BYTE,STATIC
+!!> GUID('e5338adb-5425-4c22-81b5-c48bc2408b45'),PROMPT('G : LF:'),HEADER('G : LF'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : hardspace:'),USE(?G:hardspace:Prompt)
+! ENTRY(@n3),USE(G:hardspace)
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:hardspace)
+G:hardspace              BYTE,STATIC
+!!> GUID('07cc1ffd-5e8e-4b1b-b97d-835e18c19436'),PROMPT('G : hardspace:'),HEADER('G : hardspace'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : backspace:'),USE(?G:backspace:Prompt)
+! ENTRY(@n3),USE(G:backspace)
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:backspace)
+G:backspace              BYTE,STATIC
+!!> GUID('46aef67b-5724-497b-aea7-ce1832d81bdd'),PROMPT('G : backspace:'),HEADER('G : backspace'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : newline:'),USE(?G:newline:Prompt)
+! ENTRY(@n3),USE(G:newline),MSG('marker for end of line'),TIP('marker for end of line')
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:newline)
+G:newline                BYTE,STATIC !marker for end of line
+!!> GUID('6cc266dd-9fbb-44e0-a8d3-050e1e208a6d'),PROMPT('G : newline:'),HEADER('G : newline'),MESSAGE('marker for end of line'),TOOLTIP('marker for end of line'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : endstr:'),USE(?G:endstr:Prompt)
+! ENTRY(@n3),USE(G:endstr),MSG('marker for end of string'),TIP('marker for end of string')
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:endstr)
+G:endstr                 BYTE,STATIC !marker for end of string
+!!> GUID('aa2943ac-319c-4584-b97f-9b5520fdd170'),PROMPT('G : endstr:'),HEADER('G : endstr'),MESSAGE('marker for end of string'),TOOLTIP('marker for end of string'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : huge:'),USE(?G:huge:Prompt)
+! ENTRY(@n-14),USE(G:huge),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:huge),RIGHT(1)
+G:huge                   LONG,STATIC
+!!> GUID('b83b6351-c78c-4ef6-b1f1-0c86d501cbf9'),PROMPT('G : huge:'),HEADER('G : huge'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : pagewidth:'),USE(?G:pagewidth:Prompt)
+! ENTRY(@n-14),USE(G:pagewidth),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:pagewidth),RIGHT(1)
+G:pagewidth              LONG,STATIC
+!!> GUID('7c05259a-4324-4142-b626-6ee59b37b57e'),PROMPT('G : pagewidth:'),HEADER('G : pagewidth'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : pagelength:'),USE(?G:pagelength:Prompt)
+! ENTRY(@n-14),USE(G:pagelength),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:pagelength),RIGHT(1)
+G:pagelength             LONG,STATIC
+!!> GUID('2600d2e1-9760-4df6-b990-1150b632a6ef'),PROMPT('G : pagelength:'),HEADER('G : pagelength'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : lineno:'),USE(?G:lineno:Prompt)
+! ENTRY(@n-14),USE(G:lineno),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:lineno),RIGHT(1)
+G:lineno                 LONG,STATIC
+!!> GUID('660b28f5-b71d-4751-a64b-e72d92cb0a81'),PROMPT('G : lineno:'),HEADER('G : lineno'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : bottom:'),USE(?G:bottom:Prompt)
+! ENTRY(@n-14),USE(G:bottom),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:bottom),RIGHT(1)
+G:bottom                 LONG,STATIC
+!!> GUID('30aa019c-d061-41be-a5b0-45fc34773d41'),PROMPT('G : bottom:'),HEADER('G : bottom'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : maxstr:'),USE(?G:maxstr:Prompt)
+! ENTRY(@n-14),USE(G:maxstr),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:maxstr),RIGHT(1)
+G:maxstr                 LONG,STATIC
+!!> GUID('c14cccee-7d13-45db-8666-6560d06dc224'),PROMPT('G : maxstr:'),HEADER('G : maxstr'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : fill:'),USE(?G:fill:Prompt)
+! ENTRY(@n3),USE(G:fill)
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:fill)
+G:fill                   BYTE,STATIC
+!!> GUID('4abba8b9-295a-460b-adad-ba00a227068e'),PROMPT('G : fill:'),HEADER('G : fill'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : justify:'),USE(?G:justify:Prompt)
+! ENTRY(@n3),USE(G:justify)
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:justify)
+G:justify                BYTE,STATIC
+!!> GUID('764d59f3-522d-445b-915b-e3af6a33230b'),PROMPT('G : justify:'),HEADER('G : justify'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : lsval:'),USE(?G:lsval:Prompt)
+! ENTRY(@n-14),USE(G:lsval),RIGHT(1),MSG('current line spacing'),TIP('current line spacing')
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:lsval),RIGHT(1)
+G:lsval                  LONG,STATIC !current line spacing
+!!> GUID('6c3307cc-86fb-4f5e-b0ed-42c65d825335'),PROMPT('G : lsval:'),HEADER('G : lsval'),MESSAGE('current line spacing'),TOOLTIP('current line spacing'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : inval:'),USE(?G:inval:Prompt)
+! ENTRY(@n-14),USE(G:inval),RIGHT(1),MSG('current indent'),TIP('current indent')
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:inval),RIGHT(1)
+G:inval                  LONG,STATIC !current indent
+!!> GUID('8c3a3030-d66d-41ba-95ab-a88499ba7745'),PROMPT('G : inval:'),HEADER('G : inval'),MESSAGE('current indent'),TOOLTIP('current indent'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : rmval:'),USE(?G:rmval:Prompt)
+! ENTRY(@n-14),USE(G:rmval),RIGHT(1),MSG('right margin'),TIP('right margin')
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:rmval),RIGHT(1)
+G:rmval                  LONG,STATIC !right margin
+!!> GUID('e118f11d-99e6-41c5-8ada-3f071eb1840f'),PROMPT('G : rmval:'),HEADER('G : rmval'),MESSAGE('right margin'),TOOLTIP('right margin'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : tival:'),USE(?G:tival:Prompt)
+! ENTRY(@n-14),USE(G:tival),RIGHT(1),MSG('temporary indent'),TIP('temporary indent')
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:tival),RIGHT(1)
+G:tival                  LONG,STATIC !temporary indent
+!!> GUID('66151419-64f2-4e9d-9b61-628abad8816f'),PROMPT('G : tival:'),HEADER('G : tival'),MESSAGE('temporary indent'),TOOLTIP('temporary indent'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : ceval:'),USE(?G:ceval:Prompt)
+! ENTRY(@n-14),USE(G:ceval),RIGHT(1),MSG('number of lines to center'),TIP('number of lines to center')
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:ceval),RIGHT(1)
+G:ceval                  LONG,STATIC !number of lines to center
+!!> GUID('987665d3-4305-440e-9920-722fb18559ed'),PROMPT('G : ceval:'),HEADER('G : ceval'),MESSAGE('number of lines to center'),TOOLTIP('number of lines to center'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : outp:'),USE(?G:outp:Prompt)
+! ENTRY(@n-14),USE(G:outp),RIGHT(1),MSG('last char. position in output'),TIP('last char. position in output')
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:outp),RIGHT(1)
+G:outp                   LONG,STATIC !last char. position in output
+!!> GUID('79ec0e24-d347-4c61-a1ff-d8f89ce9700a'),PROMPT('G : outp:'),HEADER('G : outp'),MESSAGE('last char. position in output'),TOOLTIP('last char. position in output'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : outw:'),USE(?G:outw:Prompt)
+! ENTRY(@n-14),USE(G:outw),RIGHT(1),MSG('width of text in outbug'),TIP('width of text in outbug')
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:outw),RIGHT(1)
+G:outw                   LONG,STATIC !width of text in outbug
+!!> GUID('73ccdc09-58da-4668-bf8a-5373ece70c02'),PROMPT('G : outw:'),HEADER('G : outw'),MESSAGE('width of text in outbug'),TOOLTIP('width of text in outbug'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : outwds:'),USE(?G:outwds:Prompt)
+! ENTRY(@n-14),USE(G:outwds),RIGHT(1),MSG('number of words in outbuf'),TIP('number of words in outbuf')
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:outwds),RIGHT(1)
+G:outwds                 LONG,STATIC !number of words in outbuf
+!!> GUID('d7b5f253-b6d3-4abf-bd95-32efc0819bec'),PROMPT('G : outwds:'),HEADER('G : outwds'),MESSAGE('number of words in outbuf'),TOOLTIP('number of words in outbuf'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : dir:'),USE(?G:dir:Prompt)
+! ENTRY(@n3),USE(G:dir),MSG('direction of blank padding'),TIP('direction of blank padding')
+[REPORTCONTROLS]
+! STRING(@n3),USE(G:dir)
+G:dir                    BYTE,STATIC !direction of blank padding
+!!> GUID('1e471932-fc5b-43d3-a6a5-83ea12cd8de0'),PROMPT('G : dir:'),HEADER('G : dir'),MESSAGE('direction of blank padding'),TOOLTIP('direction of blank padding'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('G : Text Buffer Lng:'),USE(?G:TextBufferLng:Prompt)
+! ENTRY(@n-14),USE(G:TextBufferLng),RIGHT(1),MSG('size of Output Text Buffer in Caller'),TIP('size of Output Text Buffer in Caller')
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:TextBufferLng),RIGHT(1)
+G:TextBufferLng          LONG,STATIC !size of Output Text Buffer in Caller
+!!> GUID('4759012f-e8f6-41cb-ba79-237569138dd7'),PROMPT('G : Text Buffer Lng:'),HEADER('G : Text Buffer Lng'),MESSAGE('size of Output Text Buffer in Caller'),TOOLTIP('size of Output Text Buffer in Caller'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : Text Buffer:'),USE(?G:TextBuffer:Prompt)
+! ENTRY(@s20),USE(G:TextBuffer),MSG('address of output text buffer in caller'),TIP('address of output text buffer in caller')
+[REPORTCONTROLS]
+! STRING(@s20),USE(G:TextBuffer)
+G:TextBuffer             &STRING,STATIC !address of output text buffer in caller
+!!> GUID('a08d6d14-06df-410b-86e4-24834ad91afb'),PROMPT('G : Text Buffer:'),HEADER('G : Text Buffer'),MESSAGE('address of output text buffer in caller'),TOOLTIP('address of output text buffer in caller'),PICTURE(@s20)
+[SCREENCONTROLS]
+! PROMPT('G : Buf Ptr:'),USE(?G:BufPtr:Prompt)
+! ENTRY(@n-14),USE(G:BufPtr),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(G:BufPtr),RIGHT(1)
+G:BufPtr                 LONG,STATIC
+!!> GUID('3e61484f-6a2e-4aaf-a98d-b86070cd7952'),PROMPT('G : Buf Ptr:'),HEADER('G : Buf Ptr'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('G : inbuf:'),USE(?G:inbuf:Prompt)
+! TEXT,USE(G:inbuf)
+[REPORTCONTROLS]
+! TEXT,USE(G:inbuf)
+G:inbuf                  STRING(4000),STATIC
+!!> GUID('e2f7020d-7c14-4e48-806a-0e4eaea7fe8e'),PROMPT('G : inbuf:'),HEADER('G : inbuf'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('G : outbuf:'),USE(?G:outbuf:Prompt)
+! TEXT,USE(G:outbuf)
+[REPORTCONTROLS]
+! TEXT,USE(G:outbuf)
+G:outbuf                 STRING(4000),STATIC
+!!> GUID('eb9cc9d3-1d2e-4b7f-ba8a-269c49da1787'),PROMPT('G : outbuf:'),HEADER('G : outbuf'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Txt Form Q:'),USE(?TxtFormQ:Prompt)
+! ENTRY(@s130),USE(TxtFormQ)
+[REPORTCONTROLS]
+! STRING(@s130),USE(TxtFormQ)
+TxtFormQ                 QUEUE,PRE()
+!!> GUID('44d61069-8a02-4e88-924d-43a7d95baf75'),PROMPT('Txt Form Q:'),HEADER('Txt Form Q'),PICTURE(@s130)
+[SCREENCONTROLS]
+! PROMPT('Variable Str:'),USE(?VariableStr:Prompt)
+! ENTRY(@s30),USE(VariableStr)
+[REPORTCONTROLS]
+! STRING(@s30),USE(VariableStr)
+VariableStr                STRING(30)
+!!> GUID('cc97ae7c-2bdc-429c-99dd-1b4f68fda278'),PROMPT('Variable Str:'),HEADER('Variable Str'),PICTURE(@s30)
+[SCREENCONTROLS]
+! PROMPT('Replace Str:'),USE(?ReplaceStr:Prompt)
+! ENTRY(@s100),USE(ReplaceStr)
+[REPORTCONTROLS]
+! STRING(@s100),USE(ReplaceStr)
+ReplaceStr                 STRING(100)
+!!> GUID('77880241-d954-4958-9e4d-a4084f85239d'),PROMPT('Replace Str:'),HEADER('Replace Str'),PICTURE(@s100)
+                         END
+!!> GUID('2877f677-0b75-4cee-89b3-f7975b842437')
+[EMBED]
+EMBED %AfterGlobalIncludes
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+fi EQUATE (1)
+nf EQUATE (2)
+ju EQUATE (3)
+nj EQUATE (4)
+br EQUATE (5)
+ls EQUATE (6)
+rm EQUATE (7)
+lm EQUATE (8)
+ti EQUATE (9)
+sp EQUATE (10)
+bp EQUATE (11)
+pc EQUATE (12)
+ta EQUATE (13)
+ce EQUATE (14)
+ul EQUATE (15)
+bf EQUATE (16)
+he EQUATE (17)
+fo EQUATE (18)
+pl EQUATE (19)
+vm EQUATE (20)
+ac EQUATE (21)
+inc EQUATE (22)
+da EQUATE (23)
+dn EQUATE (24)
+ke EQUATE (25)
+ne EQUATE (26)
+pd EQUATE (27)
+pi EQUATE (28)
+qu EQUATE (29)
+qd EQUATE (30)
+unknown EQUATE (100)
+
+[END]
+[END]
+[END]
+[MODULE]
+[COMMON]
+FROM Clarion GENERATED
+[PROCEDURE]
+NAME FormatText
+PROTOTYPE '(*STRING,LONG)'
+PARAMETERS '(TextIn,TextInSize)'
+[COMMON]
+DESCRIPTION 'Format Text To Output Buffer'
+FROM Clarion Source
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('Text Lng:'),USE(?TextLng:Prompt)
+! ENTRY(@n-14),USE(TextLng),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(TextLng),RIGHT(1)
+TextLng                  LONG
+!!> GUID('3623a2f4-27fa-4ab8-934d-1d6188bd1bf2'),PROMPT('Text Lng:'),HEADER('Text Lng'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('n:'),USE(?n:Prompt)
+! ENTRY(@n-14),USE(n),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(n),RIGHT(1)
+n                        LONG
+!!> GUID('153756e3-316a-49cc-b29d-7e0be8cbf2d9'),PROMPT('n:'),HEADER('n'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  TextLng = TextInSize
+  LOOP WHILE( (TextIn[TextLng] = CHR(G:blank) OR TextIn[TextLng] = '') AND TextLng > 0)
+    TextLng -= 1
+  END
+
+  II# = 1
+  LOOP WHILE(II# <= TextLng)
+
+    G:inbuf = ''
+    n = 1
+    LOOP
+      IF TextIn[II#] = CHR(G:CR) AND TextIn[II#+1] = CHR(G:LF); II# += 2; BREAK.
+
+      G:inbuf[n] = TextIn[II#]
+      if n <= 4000-2; n += 1.     ! ***** check for buffer overflow
+      II# += 1
+
+      IF II# > TextLng; BREAK.
+    END
+
+    G:inbuf[n]   = CHR(G:newline)
+    G:inbuf[n+1] = CHR(G:endstr)
+
+    IF G:inbuf[1] = CHR(G:cmd)
+      docommand(G:inbuf)
+    ELSE
+      textout(G:inbuf)
+    END
+
+  END
+
+OMIT('!Notes')
+
+  The heirarchy of processing generally is. . .
+
+     docommand
+        getcmd
+        getval
+        setparam
+
+
+     textout
+
+       .nf   put
+
+       .fi   getword
+             putword
+        .ju    spread
+             break
+               put
+                 writebuffer
+             skip
+
+  with the routines (min,max,width,length,skipbl,leadbl,scopy)
+  being used as required
+!Notes
+
+[END]
+[END]
+[END]
+[MODULE]
+[COMMON]
+FROM Clarion GENERATED
+[PROCEDURE]
+NAME FormatInit
+PROTOTYPE '(*STRING, LONG)'
+PARAMETERS '(BufferAddress, BufferLng)'
+[COMMON]
+DESCRIPTION 'Initialize the Formatter'
+FROM Clarion Source
+MODIFIED '2026/06/14' '16:21:18'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+OMIT ('!Comments')
+
+  Software Tools in Pascal
+  Kernighan & Plaugher  (1980's?)
+
+  Text Formatter Chapter
+
+  This design was the precursor to Unix utilites "roff", "nroff", "troff", "ditroff"
+
+  These are the basic formatting commands that were outlined in the Chapter on Text Formatting
+
+ .sp - space N number of lines
+ .br - force output buffer to clear
+ .fi - fill on, add words to output buffer
+ .nf - fill off, send each input line to output buffer
+ .ju - justify text to right margin
+ .nj - no justify, ragged right margin
+ .ls - set line spacing
+ .lm - set left margin
+ .rm - set right margin
+ .ti - temporary indent
+
+  These commands are not and will not be implemented they were in my Pascal
+  program but are not needed here.
+
+ .bp - break page
+ .pl - page length
+ .pc - send printer commands to control special features
+ .vm - vertical margins
+ .ta - set tab stops and skip to tab
+ .ac - set alignment character - align character on the tab stop
+ .bf - boldface
+ .ul - underline
+ .da/dn - alphabetic date and numeric date
+ .ke - reserves specified number of blank lines
+ .ne - insures block of text is kept on the same page
+ .in - include the specified file
+ .pd - paragraph skip and indentation
+ .pi - set the character per inch
+
+  This is an addition in order to substitutedatabase data
+  into the text strings.
+
+  .qu adds a variable name and data to a queue
+      When the text is parsed if a <nnnnn> is found then the value "nnnnn" is 
+      used to search the queue. If match found then corresponding data is substituted.
+
+  Notes
+
+  Michael J Kuhn 8-10-99   mike@kuhns.org
+
+  My requirements for Clarion were simple, I just need to format some text in a buffer
+  and print it. Basically a simple letter writer or in my case a Court Document.
+
+  This was a rush job and future requirements and sophistication were not considered.
+
+  I simply took the original source code that I had in Pascal and duplicated it in
+  Clarion. I did not convert my "upgrades" to the text formatter, although I did include
+  the dot commands in getcmd routine only as reminder to myself.
+
+  "do" was prefixed to some procedure names because of keyword conflicts.
+!Comments
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+ FREE(TxtFormQ)                ! Clear the variable replace queue
+
+ G:TextBuffer    &= BufferAddress
+ G:BufPtr        = 0
+ G:TextBufferLng = BufferLng
+
+ G:blank = VAL(' ')
+ G:cmd   = VAL('.')
+ G:plus  = VAL('+')
+ G:minus = VAL('-')
+ G:CR    = VAL('<13>')
+ G:LF    = VAL('<10>')
+
+ G:newline   = 04h
+ G:endstr    = 05h
+ G:hardspace = 5Ch
+ G:backspace = 00h
+
+ G:huge      = 999999
+ G:maxstr    = 1000
+ G:pagewidth = 90
+ G:pagelength= 66
+
+ G:dir     = 0
+ G:fill    = TRUE
+ G:justify = TRUE
+
+ G:lsval = 1
+ G:inval = 0
+ G:tival = 0
+ G:ceval = 0
+ G:rmval = G:pagewidth
+
+ G:bottom = G:pagelength
+ G:lineno = 0
+
+ G:outp   = 0
+ G:outw   = 0
+ G:outwds = 0
+
+[END]
+[END]
+[END]
+[MODULE]
+[COMMON]
+FROM Clarion GENERATED
+[PROCEDURE]
+NAME min
+PROTOTYPE '(LONG,LONG)LONG'
+PARAMETERS '(x,y)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'minimum of 2 integers'
+FROM Clarion Source
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+IF X < Y
+  RETURN(X)
+ELSE
+  RETURN(Y)
+END
+[END]
+[END]
+[PROCEDURE]
+NAME max
+PROTOTYPE '(LONG,LONG)LONG'
+PARAMETERS '(x,y)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'maximum of 2 integers'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:43:27'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+IF x < y
+  RETURN(Y)
+ELSE
+  RETURN(X)
+END
+[END]
+[END]
+[PROCEDURE]
+NAME skipbl
+PROTOTYPE '(*STRING, *LONG)'
+PARAMETERS '(buf, i)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'skip spaces'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:43:48'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+LOOP WHILE(buf[i] = CHR(G:blank))
+  i += 1
+END
+[END]
+[END]
+[PROCEDURE]
+NAME getval
+PROTOTYPE '(*STRING,*BYTE,*LONG,*LONG)'
+PARAMETERS '(buf, argtype, arg, i)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'gets the numeric argument on command line'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:43:58'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('work:'),USE(?work:Prompt)
+! ENTRY(@s5),USE(work)
+[REPORTCONTROLS]
+! STRING(@s5),USE(work)
+work                     STRING(5)
+!!> GUID('a04c36ec-41fe-4ed0-93d7-f77cd770efba'),PROMPT('work:'),HEADER('work'),PICTURE(@s5)
+[SCREENCONTROLS]
+! PROMPT('n:'),USE(?n:Prompt)
+! ENTRY(@n-14),USE(n),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(n),RIGHT(1)
+n                        LONG
+!!> GUID('8b6b509f-46fe-4f41-bc93-813d2ec6c3d3'),PROMPT('n:'),HEADER('n'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  skipbl(buf, i)
+
+  argtype = buf[i]
+  IF (argtype = CHR(G:plus)) OR (argtype = CHR(G:minus)); i =+ 1.
+
+  n = 1
+  work = '';
+  skipbl(buf,i)
+  LOOP
+    IF buf[i] = CHR(G:blank) OR buf[i] = CHR(G:newline) OR buf[i] = CHR(G:endstr); BREAK.
+
+    work[n] = buf[i]
+    n += 1
+    i += 1
+  END
+
+  IF ~NUMERIC(work)
+    arg = 0
+  ELSE
+    arg = work
+  END
+[END]
+[END]
+[PROCEDURE]
+NAME docommand
+PROTOTYPE '(*STRING)'
+PARAMETERS '(buf)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'process the dot command'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:44:10'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('cmd:'),USE(?cmd:Prompt)
+! ENTRY(@n3),USE(cmd)
+[REPORTCONTROLS]
+! STRING(@n3),USE(cmd)
+cmd                      BYTE
+!!> GUID('7ff500a8-7f94-489f-b2f5-a52ba4157735'),PROMPT('cmd:'),HEADER('cmd'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('cmdval:'),USE(?cmdval:Prompt)
+! ENTRY(@n-14),USE(cmdval),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(cmdval),RIGHT(1)
+cmdval                   LONG
+!!> GUID('7636d746-5284-4f0d-b9c6-d828181ae6fc'),PROMPT('cmdval:'),HEADER('cmdval'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('argtype:'),USE(?argtype:Prompt)
+! ENTRY(@n3),USE(argtype)
+[REPORTCONTROLS]
+! STRING(@n3),USE(argtype)
+argtype                  BYTE
+!!> GUID('971796ab-7a32-456d-90ed-91708ab64cc4'),PROMPT('argtype:'),HEADER('argtype'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('spval:'),USE(?spval:Prompt)
+! ENTRY(@n-14),USE(spval),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(spval),RIGHT(1)
+spval                    LONG
+!!> GUID('2bcb242b-1bc4-4ce8-b442-aac337f44723'),PROMPT('spval:'),HEADER('spval'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('x:'),USE(?x:Prompt)
+! ENTRY(@n-14),USE(x),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(x),RIGHT(1)
+x                        LONG
+!!> GUID('19e0c59e-850a-4457-a28a-c7bcb342b5ec'),PROMPT('x:'),HEADER('x'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Var Str:'),USE(?VarStr:Prompt)
+! ENTRY(@s200),USE(VarStr)
+[REPORTCONTROLS]
+! STRING(@s200),USE(VarStr)
+VarStr                   STRING(200)
+!!> GUID('18b32716-80bd-4e90-b885-7d8e2b613d6e'),PROMPT('Var Str:'),HEADER('Var Str'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('Rep Str:'),USE(?RepStr:Prompt)
+! ENTRY(@s200),USE(RepStr)
+[REPORTCONTROLS]
+! STRING(@s200),USE(RepStr)
+RepStr                   STRING(200)
+!!> GUID('1a66adb8-64bb-4475-83fe-424d4ab8145b'),PROMPT('Rep Str:'),HEADER('Rep Str'),PICTURE(@s200)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+ cmd = getcmd(buf)
+
+ x = 4
+ IF cmd <> unknown; getval(buf, argtype, cmdval, x).
+
+ CASE cmd
+   OF sp
+     space(max(cmdval,1))
+   OF br
+     dobreak
+   OF fi
+     dobreak
+     G:fill = TRUE
+   OF nf
+     dobreak
+     G:fill = FALSE
+   OF ju
+     dobreak
+     G:justify = TRUE
+   OF nj
+     dobreak
+     G:justify = FALSE
+   OF ls
+     setparm(G:lsval, cmdval, argtype, 1, 1, G:huge)
+   OF rm
+     setparm(G:rmval, cmdval, argtype, G:pagewidth, G:inval+G:tival+1, G:huge)
+   OF lm
+     dobreak
+     setparm(G:inval, cmdval, argtype, 0, 0, G:rmval-1)
+   OF ce
+     dobreak
+     setparm(G:ceval, cmdval, argtype, 1, 0, G:huge)
+   OF ti
+     dobreak
+     setparm(G:tival, cmdval, argtype, 0, -G:huge, G:rmval)
+   OF qu
+     x = 4
+     getstrn(buf, VarStr, x)
+     getstrn(buf, RepStr, x)
+
+     TxtFormQ:VariableStr = CLIP(LOWER(VarStr))
+     GET(TxtFormQ, +TxtFormQ:VariableStr)
+     IF ERRORCODE() = 30
+       TxtFormQ:VariableStr = CLIP(LOWER(VarStr))
+       TxtFormQ:ReplaceStr  = CLIP(RepStr)
+       ADD(TxtFormQ, +TxtFormQ:VariableStr)
+     END
+
+    OF qd
+      TxtFormQNbr# = RECORDS(TxtFormQ)
+      LOOP II# = 1 to TxtFormQNbr#
+        GET(TxtFormQ, II#)
+
+        G:inbuf = '(' & CLIP(TxtFormQ:VariableStr) & ':' & CLIP(TxtFormQ:ReplaceStr) & ')'
+        LNG# = LEN(CLIP(G:Inbuf))
+        G:inbuf[LNG#+1] = CHR(G:newline)
+        G:inbuf[LNG#+2] = CHR(G:endstr)
+        textout(G:inbuf)
+      END
+ END
+
+[END]
+[END]
+[PROCEDURE]
+NAME textout
+PROTOTYPE '(*STRING)'
+PARAMETERS '(inbuf)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'process in buffer to output buffer'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:44:21'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('wordbuf:'),USE(?wordbuf:Prompt)
+! TEXT,USE(wordbuf)
+[REPORTCONTROLS]
+! TEXT,USE(wordbuf)
+wordbuf                  STRING(400)
+!!> GUID('f322c87a-afbd-4a18-949b-b0ed7cd66ce2'),PROMPT('wordbuf:'),HEADER('wordbuf'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('i:'),USE(?i:Prompt)
+! ENTRY(@n-14),USE(i),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(i),RIGHT(1)
+i                        LONG
+!!> GUID('8e75ad29-9a10-4522-9b63-6aab271f8f55'),PROMPT('i:'),HEADER('i'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  IF (inbuf[1] = CHR(G:blank)) OR (inbuf[1] = CHR(G:newline)); leadbl(inbuf).
+
+  IF RECORDS(TxtFormQ) > 0
+    checkvar(inbuf)                  ! check for variable substitution
+  END
+
+  IF G:ceval > 0
+    docenter(inbuf)
+    doput(inbuf)
+    G:ceval -= 1
+  ELSIF inbuf[1] = CHR(G:newline)
+      doput(inbuf)                  !blank line
+  ELSIF ~G:fill
+      doput(inbuf)                  !unfilled text
+  ELSE
+      i = 1
+      LOOP UNTIL(i = 0)
+        getword(inbuf, i, wordbuf, i)
+        IF i > 0; putword(wordbuf).
+      END
+  END
+[END]
+[END]
+[PROCEDURE]
+NAME setparm
+PROTOTYPE '(*LONG,*LONG,BYTE,LONG,LONG,LONG)'
+PARAMETERS '(param,theval,argtype,defval,minval,maxval)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'sets variable to numeric argument'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:44:32'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  IF argtype = G:newline
+    param = defval
+  ELSIF argtype = G:plus
+    param += theval
+  ELSIF argtype = G:minus
+    param -= theval
+  ELSE
+     param = theval
+  END
+
+  param = min(param, maxval)
+  param = max(param, minval)
+
+ 
+[END]
+[END]
+[PROCEDURE]
+NAME getcmd
+PROTOTYPE '(*STRING)BYTE'
+PARAMETERS '(buf)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'convert the dot command to numeric value'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:44:46'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('cmdval:'),USE(?cmdval:Prompt)
+! ENTRY(@n3),USE(cmdval)
+[REPORTCONTROLS]
+! STRING(@n3),USE(cmdval)
+cmdval                   BYTE
+!!> GUID('b9481ced-c769-418c-b450-ed934927a40a'),PROMPT('cmdval:'),HEADER('cmdval'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('cmd:'),USE(?cmd:Prompt)
+! ENTRY(@s2),USE(cmd)
+[REPORTCONTROLS]
+! STRING(@s2),USE(cmd)
+cmd                      STRING(2)
+!!> GUID('e983e854-b235-455c-a934-03eed176a2f2'),PROMPT('cmd:'),HEADER('cmd'),PICTURE(@s2)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  cmd = LOWER(buf[2 : 3])
+  CASE cmd
+    OF 'fi'
+      cmdval = fi
+    OF 'nf'
+      cmdval = nf
+    OF 'ju'
+      cmdval = ju
+    OF 'nj'
+      cmdval = nj
+    OF 'br'
+      cmdval = br
+    OF 'ls'
+      cmdval = ls
+    OF 'rm'
+      cmdval = rm
+    OF 'lm'
+      cmdval = lm
+    OF 'ti'
+      cmdval = ti
+    OF 'sp'
+      cmdval = sp
+    OF 'bp'
+      cmdval = bp
+    OF 'pc'
+      cmdval = pc
+    OF 'ta'
+      cmdval = ta
+    OF 'ce'
+      cmdval = ce
+    OF 'ul'
+      cmdval = ul
+    OF 'bf'
+      cmdval = bf
+    OF 'he'
+      cmdval = he
+    OF 'fo'
+      cmdval = fo
+    OF 'pl'
+      cmdval = pl
+    OF 'vm'
+      cmdval = vm
+    OF 'ac'
+      cmdval = ac
+    OF 'in'
+      cmdval = inc
+    OF 'da'
+      cmdval = da
+    OF 'dn'
+      cmdval = dn
+    OF 'ke'
+      cmdval = ke
+    OF 'ne'
+      cmdval = ne
+    OF 'pd'
+      cmdval = pd
+    OF 'pi'
+      cmdval = pi
+    OF 'qu'
+      cmdval = qu
+    OF 'qd'
+      cmdval = qd
+    ELSE
+      cmdval = unknown
+  END
+  RETURN(cmdval)
+
+[END]
+[END]
+[PROCEDURE]
+NAME spread
+PROTOTYPE '(*STRING,LONG,LONG,LONG)'
+PARAMETERS '(buf,outp,nextra,outwds)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'spreads words between the margins'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:44:57'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('i:'),USE(?i:Prompt)
+! ENTRY(@n-14),USE(i),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(i),RIGHT(1)
+i                        LONG
+!!> GUID('55bf409b-4be5-4fcd-bd6a-177ccaf96bad'),PROMPT('i:'),HEADER('i'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('j:'),USE(?j:Prompt)
+! ENTRY(@n-14),USE(j),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(j),RIGHT(1)
+j                        LONG
+!!> GUID('1e9d80d3-e8ee-46c9-ae9d-b9b59759aaf1'),PROMPT('j:'),HEADER('j'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('nb:'),USE(?nb:Prompt)
+! ENTRY(@n-14),USE(nb),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(nb),RIGHT(1)
+nb                       LONG
+!!> GUID('2b363593-0532-4519-90c4-9ae0791c2b1a'),PROMPT('nb:'),HEADER('nb'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('nholes:'),USE(?nholes:Prompt)
+! ENTRY(@n-14),USE(nholes),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(nholes),RIGHT(1)
+nholes                   LONG
+!!> GUID('c9221ac3-a840-4c32-acd1-66ec4f9e2e14'),PROMPT('nholes:'),HEADER('nholes'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  IF (nextra > 0) AND (outwds > 1)
+    G:dir = 1 - G:dir                 !reverse direction
+    nholes = outwds -1
+    i = outp - 1
+    j = min(G:maxstr-2, i+nextra)     !room for newline and endstr
+
+    LOOP WHILE(i < j)
+      buf[j] = buf[i]
+
+      IF buf[i] = CHR(G:blank)
+        IF G:dir = 0
+          nb = (nextra - 1) / nholes + 1
+        ELSE
+          nb = nextra / nholes
+        END
+
+        nextra = nextra - nb
+        nholes = nholes -1
+
+        LOOP WHILE(nb > 0)
+          j -= 1
+          buf[j] = CHR(G:blank)
+          nb -= 1
+        END
+      END
+
+      i -= 1
+      j -= 1
+    END
+  END
+
+[END]
+[END]
+[PROCEDURE]
+NAME putword
+PROTOTYPE '(*STRING)'
+PARAMETERS '(wordbuf)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'moves words into output buffer'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:45:09'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('last:'),USE(?last:Prompt)
+! ENTRY(@n-14),USE(last),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(last),RIGHT(1)
+last                     LONG
+!!> GUID('98d5c055-bf00-4fcd-b755-f17c65779a4f'),PROMPT('last:'),HEADER('last'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('llval:'),USE(?llval:Prompt)
+! ENTRY(@n-14),USE(llval),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(llval),RIGHT(1)
+llval                    LONG
+!!> GUID('8d3c4598-90ce-40e8-84da-e2d6cca09ace'),PROMPT('llval:'),HEADER('llval'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('nextra:'),USE(?nextra:Prompt)
+! ENTRY(@n-14),USE(nextra),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(nextra),RIGHT(1)
+nextra                   LONG
+!!> GUID('8878f77d-3475-4979-b058-6e95d1184ed5'),PROMPT('nextra:'),HEADER('nextra'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('w:'),USE(?w:Prompt)
+! ENTRY(@n-14),USE(w),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(w),RIGHT(1)
+w                        LONG
+!!> GUID('a5b55c90-95d4-4574-8c73-3e5c0c957b39'),PROMPT('w:'),HEADER('w'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  w = fwidth(wordbuf)
+  last = flength(wordbuf) + G:outp + 1   !new end of outbuf
+  llval = G:rmval - G:tival - G:inval
+
+  IF (G:outp > 0) AND ((G:outw+w > llval) OR (last >= G:maxstr))
+    last = last - G:outp           !remember end of wordbuf
+
+    IF G:justify
+      nextra = llval - G:outw + 1
+      IF (nextra > 0) AND (G:outwds > 1)
+        spread(G:outbuf, G:outp, nextra, G:outwds)
+        G:outp = G:outp + nextra
+      END
+    END
+
+    dobreak          ! flush previous line
+  END
+
+  scopy(wordbuf, 1, G:outbuf, G:outp+1)
+
+  G:outp = last
+  G:outbuf[G:outp] = CHR(G:blank)     !blank between words
+  G:outw   = G:outw + w + 1           !1 for blank
+  G:outwds = G:outwds + 1
+
+[END]
+[END]
+[PROCEDURE]
+NAME fwidth
+PROTOTYPE '(*STRING)LONG'
+PARAMETERS '(buf)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'return width of buffer, newline has a width of zero'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:45:21'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('i:'),USE(?i:Prompt)
+! ENTRY(@n-14),USE(i),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(i),RIGHT(1)
+i                        LONG
+!!> GUID('cbb874bd-3d56-4038-8793-4c18d7aa8d26'),PROMPT('i:'),HEADER('i'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('w:'),USE(?w:Prompt)
+! ENTRY(@n-14),USE(w),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(w),RIGHT(1)
+w                        LONG
+!!> GUID('d8958a57-7afd-40ab-b58c-389a827dfac7'),PROMPT('w:'),HEADER('w'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  w = 0
+  i = 1
+
+  LOOP WHILE(buf[i] <> CHR(G:endstr))
+    IF buf[i] = CHR(G:backspace)
+      w -= 1
+    ELSIF buf[i] = CHR(G:newline)
+    ELSE
+      w += 1
+    END
+
+    i += 1
+  END
+
+  RETURN(w)
+
+
+[END]
+[END]
+[PROCEDURE]
+NAME flength
+PROTOTYPE '(*STRING)LONG'
+PARAMETERS '(buf)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'return length of string, excluding the endstr'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:45:30'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('n:'),USE(?n:Prompt)
+! ENTRY(@n-14),USE(n),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(n),RIGHT(1)
+n                        LONG
+!!> GUID('48aab8c0-d97b-4073-ad0d-9828f658e71f'),PROMPT('n:'),HEADER('n'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  n = 1
+  LOOP WHILE(buf[n] <> CHR(G:endstr))
+    n += 1
+  END
+  RETURN(n-1)
+[END]
+[END]
+[PROCEDURE]
+NAME space
+PROTOTYPE '(LONG)'
+PARAMETERS '(n)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'skips N lines to the bottom of page'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:45:41'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  dobreak
+  IF G:lineno <= G:bottom
+    IF G:lineno <= 0; puthead.
+
+    doskip(min(n, G:bottom+1-G:lineno))
+    G:lineno += n
+
+    IF G:lineno > G:bottom; putfoot.
+  END
+[END]
+[END]
+[PROCEDURE]
+NAME puthead
+NOEXPORT
+[COMMON]
+DESCRIPTION 'put out page header'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:45:53'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  RETURN
+[END]
+[END]
+[PROCEDURE]
+NAME putfoot
+NOEXPORT
+[COMMON]
+DESCRIPTION 'put out page footer'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:46:03'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  RETURN
+[END]
+[END]
+[PROCEDURE]
+NAME getword
+PROTOTYPE '(*STRING,LONG,*STRING,*LONG) '
+PARAMETERS '(buf,i,bufout,ptr)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'gets one word from buffer and moves it out'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:46:14'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('j:'),USE(?j:Prompt)
+! ENTRY(@n-14),USE(j),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(j),RIGHT(1)
+j                        LONG
+!!> GUID('2d84ed38-f9b2-483e-ab52-a18839947784'),PROMPT('j:'),HEADER('j'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  LOOP WHILE(buf[i] = CHR(G:blank) OR buf[i] = CHR(G:newline))
+    i += 1
+  END
+  j += 1
+
+  LOOP WHILE (buf[i] <> CHR(G:endstr) AND buf[i] <> CHR(G:blank) AND buf[i] <> CHR(G:newline))
+    bufout[j] = buf[i]
+    i += 1
+    j += 1
+  END
+
+  bufout[j] = CHR(G:endstr)
+  IF buf[i] = CHR(G:endstr)
+    ptr = 0
+  ELSE
+    ptr = i
+  END
+[END]
+[END]
+[PROCEDURE]
+NAME dobreak
+NOEXPORT
+[COMMON]
+DESCRIPTION 'clears output buffer by outputting line'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:46:25'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  IF G:outp > 0
+    G:outbuf[G:outp]   = CHR(G:newline)
+    G:outbuf[G:outp+1] = CHR(G:endstr)
+    doput(G:outbuf)
+  END
+  G:outp   = 0
+  G:outw   = 0
+  G:outwds = 0
+[END]
+[END]
+[PROCEDURE]
+NAME scopy
+PROTOTYPE '(*STRING,LONG,*STRING,LONG)'
+PARAMETERS '(str,i,dest,j)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'copy a string, terminated by endstr'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:46:38'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  LOOP WHILE(str[i] <> CHR(G:endstr))
+    dest[j] = str[i]
+    i += 1
+    j += 1
+  END
+  dest[j] = CHR(G:endstr)
+[END]
+[END]
+[PROCEDURE]
+NAME doskip
+PROTOTYPE '(LONG)'
+PARAMETERS '(n)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'skip N number of lines'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:46:47'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('x:'),USE(?x:Prompt)
+! ENTRY(@n-14),USE(x),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(x),RIGHT(1)
+x                        LONG
+!!> GUID('fb1fa413-64fe-40df-8006-dc8c2a5dd98b'),PROMPT('x:'),HEADER('x'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  LOOP x = 1 to n
+    WriteTextBuffer(CHR(G:CR))
+    WriteTextBuffer(CHR(G:LF))
+  END
+[END]
+[END]
+[PROCEDURE]
+NAME doput
+PROTOTYPE '(*STRING)'
+PARAMETERS '(buf)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'put out line with spacing and indents'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:47:00'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('n:'),USE(?n:Prompt)
+! ENTRY(@n-14),USE(n),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(n),RIGHT(1)
+n                        LONG
+!!> GUID('cacf1eba-ef9c-4092-8f00-1bfa2576665e'),PROMPT('n:'),HEADER('n'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('x:'),USE(?x:Prompt)
+! ENTRY(@n-14),USE(x),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(x),RIGHT(1)
+x                        LONG
+!!> GUID('470b639d-8fc8-4961-a3f6-299e25faa383'),PROMPT('x:'),HEADER('x'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  LOOP x = 1 TO (G:inval+G:tival)
+    WriteTextBuffer(CHR(G:blank))
+  END
+
+  n = 1
+  LOOP WHILE(buf[n] <> CHR(G:endstr))
+
+    IF buf[n] = CHR(G:newline)
+      WriteTextBuffer(CHR(G:CR))
+      WriteTextBuffer(CHR(G:LF))
+    ELSIF buf[n] = CHR(G:hardspace)
+      WriteTextBuffer(CHR(G:blank))
+    ELSE
+      WriteTextBuffer(buf[n])
+    END
+
+    n += 1
+  END
+
+  G:tival = 0
+  doskip(min(G:lsval-1, G:bottom-G:lineno))
+  G:lineno += G:lsval
+  IF G:lineno > G:bottom; putfoot.
+
+
+
+
+[END]
+[END]
+[PROCEDURE]
+NAME writetextbuffer
+PROTOTYPE '(STRING)'
+PARAMETERS '(strchr)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'move char to text buffer'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:47:11'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+ IF G:BufPtr < G:TextBufferLng
+   G:BufPtr += 1
+   G:TextBuffer[G:BufPtr] = strchr
+ END
+[END]
+[END]
+[PROCEDURE]
+NAME leadbl
+PROTOTYPE '(*STRING)'
+PARAMETERS '(buf)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'shift leading blanks out'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:47:24'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('i:'),USE(?i:Prompt)
+! ENTRY(@n-14),USE(i),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(i),RIGHT(1)
+i                        LONG
+!!> GUID('33a0c0c8-f636-44fa-8d70-574a84886edf'),PROMPT('i:'),HEADER('i'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('j:'),USE(?j:Prompt)
+! ENTRY(@n-14),USE(j),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(j),RIGHT(1)
+j                        LONG
+!!> GUID('5329d629-bb95-41d5-8b6f-9cc1592368ab'),PROMPT('j:'),HEADER('j'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  dobreak
+  i = 1
+
+  LOOP WHILE(buf[i] = CHR(G:blank))
+    i += 1
+  END
+
+  if buf[i] <> CHR(G:newline); G:tival = G:tival + i - 1.
+
+  LOOP j = i to (flength(buf)+1)
+    buf[j-i+1] = buf[j]
+  END
+[END]
+[END]
+[PROCEDURE]
+NAME docenter
+PROTOTYPE '(*STRING)'
+PARAMETERS '(buf)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'center a line by setting tival'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:47:35'
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+ G:tival = max((G:rmval+G:tival-fwidth(buf)) / 2, 0)
+[END]
+[END]
+[PROCEDURE]
+NAME getstrn
+PROTOTYPE '(*STRING,*STRING,*LONG)'
+PARAMETERS '(buf, arg, i)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'gets the string argument on command line'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:47:48'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('argtype:'),USE(?argtype:Prompt)
+! ENTRY(@s1),USE(argtype)
+[REPORTCONTROLS]
+! STRING(@s1),USE(argtype)
+argtype                  STRING(1)
+!!> GUID('1a38eeb5-406e-4b5f-ba9c-1efc86a953ff'),PROMPT('argtype:'),HEADER('argtype'),PICTURE(@s1)
+[SCREENCONTROLS]
+! PROMPT('quoted:'),USE(?quoted:Prompt)
+! ENTRY(@n3),USE(quoted)
+[REPORTCONTROLS]
+! STRING(@n3),USE(quoted)
+quoted                   BYTE
+!!> GUID('548d8bf5-7e0c-49ea-9c99-1bb7f8f826c5'),PROMPT('quoted:'),HEADER('quoted'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('work:'),USE(?work:Prompt)
+! ENTRY(@s200),USE(work)
+[REPORTCONTROLS]
+! STRING(@s200),USE(work)
+work                     STRING(200)
+!!> GUID('cb45f0a6-b9cf-4352-adc0-9bf769cb3d29'),PROMPT('work:'),HEADER('work'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('n:'),USE(?n:Prompt)
+! ENTRY(@n-14),USE(n),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(n),RIGHT(1)
+n                        LONG
+!!> GUID('82b76f62-06c0-4f5e-8141-2eb00fac112a'),PROMPT('n:'),HEADER('n'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  skipbl(buf, i)
+  quoted = False
+
+  argtype = buf[i]
+  IF (argtype = '"'); i += 1; quoted = TRUE.
+
+  n = 1
+  work = '';
+  skipbl(buf,i)
+  LOOP
+    argtype = buf[i]
+    IF (argtype = '"' AND quoted) OR (buf[i] = CHR(G:Blank) AND ~quoted) |
+                      OR buf[i] = CHR(G:newline) OR buf[i] = CHR(G:endstr); BREAK.
+
+    work[n] = buf[i]
+    n += 1
+    i += 1
+  END
+
+  LOOP NN# = 1 to n-1
+    arg[NN#] = work[NN#]
+  END
+
+[END]
+[END]
+[PROCEDURE]
+NAME checkvar
+PROTOTYPE '(*STRING)'
+PARAMETERS '(buf)'
+NOEXPORT
+[COMMON]
+DESCRIPTION 'check  buffer for variable keywords'
+FROM Clarion Source
+MODIFIED '2026/06/14' '10:48:00'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('wbuf:'),USE(?wbuf:Prompt)
+! TEXT,USE(wbuf)
+[REPORTCONTROLS]
+! TEXT,USE(wbuf)
+wbuf                     STRING(4000)
+!!> GUID('dd8f0b5c-4012-4b99-b376-759499c5ac04'),PROMPT('wbuf:'),HEADER('wbuf'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('i:'),USE(?i:Prompt)
+! ENTRY(@n-14),USE(i),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(i),RIGHT(1)
+i                        LONG
+!!> GUID('b05beb82-daa2-4065-85cc-b7483ddbf7a7'),PROMPT('i:'),HEADER('i'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('j:'),USE(?j:Prompt)
+! ENTRY(@n-14),USE(j),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(j),RIGHT(1)
+j                        LONG
+!!> GUID('d41a69ea-81b6-4078-863e-2b434f21c70f'),PROMPT('j:'),HEADER('j'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('x:'),USE(?x:Prompt)
+! ENTRY(@n-14),USE(x),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(x),RIGHT(1)
+x                        LONG
+!!> GUID('283c9f92-5360-4cb7-9114-9d1748c96a1e'),PROMPT('x:'),HEADER('x'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('rep Lng:'),USE(?repLng:Prompt)
+! ENTRY(@n-14),USE(repLng),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(repLng),RIGHT(1)
+repLng                   LONG
+!!> GUID('1613004c-97b7-41aa-bba4-7d8c0e612078'),PROMPT('rep Lng:'),HEADER('rep Lng'),PICTURE(@n-14),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('var Found:'),USE(?varFound:Prompt)
+! ENTRY(@n3),USE(varFound)
+[REPORTCONTROLS]
+! STRING(@n3),USE(varFound)
+varFound                 BYTE
+!!> GUID('855aa62e-d594-45ad-9ca6-6187954a0b37'),PROMPT('var Found:'),HEADER('var Found'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('var Str:'),USE(?varStr:Prompt)
+! ENTRY(@s50),USE(varStr)
+[REPORTCONTROLS]
+! STRING(@s50),USE(varStr)
+varStr                   STRING(50)
+!!> GUID('51165b5e-32a2-4764-bf1a-1ec57f9d6368'),PROMPT('var Str:'),HEADER('var Str'),PICTURE(@s50)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+ varFound = False
+ i = 1
+ j = 1
+ LOOP WHILE(buf[i] <> CHR(G:endstr))
+    IF buf[i] = '<<'
+      x = INSTRING('>', buf, 1, i)
+
+      IF ((x-1) - (i+1)) > 50; x = 0.        ! variable string too big
+
+      IF x <> 0
+         VarStr = buf[i+1 : x-1]
+        TxtFormQ:VariableStr = CLIP(LOWER(VarStr))
+        GET(TxtFormQ, +TxtFormQ:VariableStr)
+        IF ERRORCODE() = 30
+          wbuf[j] = buf[i]
+          i += 1
+          j += 1
+        ELSE
+          varFound = True
+          i = x + 1
+          repLng = LEN(CLIP(TxtFormQ:ReplaceStr))
+          LOOP N# = 1 to repLng
+            wbuf[j] = TxtFormQ:ReplaceStr[N#]
+            j  += 1
+          END
+        END  ! ERROCODE() = 30
+      ELSE ! closing '>' not found
+        wbuf[j] = buf[i]
+        i += 1
+        j += 1
+      END
+    ELSE ! no opening '<' found
+      wbuf[j] = buf[i]
+      i += 1
+      j += 1
+    END
+ END
+ IF varFound
+   wbuf[j] = CHR(G:endstr)
+   scopy(wbuf, 1, buf, 1)
+ END
+
+
+[END]
+[END]
+[END]
+[MODULE]
+[COMMON]
+FROM Clarion GENERATED
+[PROCEDURE]
+NAME TestFormat
+[COMMON]
+FROM Clarion Source
+MODIFIED '2026/06/14' '16:13:55'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('Test Buffer:'),USE(?TestBuffer:Prompt)
+! TEXT,USE(TestBuffer)
+[REPORTCONTROLS]
+! TEXT,USE(TestBuffer)
+TestBuffer               STRING(2000)
+!!> GUID('966487d0-fb9d-45f9-b2d7-5c19e2c9631c'),PROMPT('Test Buffer:'),HEADER('Test Buffer'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Test Cmd:'),USE(?TestCmd:Prompt)
+! ENTRY(@s30),USE(TestCmd)
+[REPORTCONTROLS]
+! STRING(@s30),USE(TestCmd)
+TestCmd                  STRING(30)
+!!> GUID('04f68a4f-1f0e-4a7e-9339-6e2bd450cb34'),PROMPT('Test Cmd:'),HEADER('Test Cmd'),PICTURE(@s30)
+[SCREENCONTROLS]
+! PROMPT('Test Str:'),USE(?TestStr:Prompt)
+! TEXT,USE(TestStr)
+[REPORTCONTROLS]
+! TEXT,USE(TestStr)
+TestStr                  STRING(500)
+!!> GUID('afd38c41-0309-465e-b619-16a38be92e2d'),PROMPT('Test Str:'),HEADER('Test Str'),PICTURE(@s255)
+[SCREENCONTROLS]
+! PROMPT('Coding Date:'),USE(?CodingDate:Prompt)
+! ENTRY(@d2),USE(CodingDate),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@d2),USE(CodingDate),RIGHT(1)
+CodingDate               LONG
+!!> GUID('eb48361d-455d-4e05-8d22-cc77f1f16015'),PROMPT('Coding Date:'),HEADER('Coding Date'),PICTURE(@d2),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Run Date:'),USE(?RunDate:Prompt)
+! ENTRY(@n-14),USE(RunDate),RIGHT(1)
+[REPORTCONTROLS]
+! STRING(@n-14),USE(RunDate),RIGHT(1)
+RunDate                  LONG
+!!> GUID('ccfa5647-74dc-40b7-8c6e-9696b6551fac'),PROMPT('Run Date:'),HEADER('Run Date'),PICTURE(@n-14),TYPEMODE(INS),JUSTIFY(RIGHT,1)
+[SCREENCONTROLS]
+! PROMPT('Donation:'),USE(?Donation:Prompt)
+! ENTRY(@n-10.2),USE(Donation),DECIMAL(12)
+[REPORTCONTROLS]
+! STRING(@n-10.2),USE(Donation),DECIMAL(12)
+Donation                 DECIMAL(7,2)
+!!> GUID('d5b341c5-6184-4f97-b33b-661da4437676'),PROMPT('Donation:'),HEADER('Donation'),PICTURE(@n-10.2),TYPEMODE(INS),JUSTIFY(DECIMAL,12)
+[SCREENCONTROLS]
+! PROMPT('My Name:'),USE(?MyName:Prompt)
+! ENTRY(@s30),USE(MyName)
+[REPORTCONTROLS]
+! STRING(@s30),USE(MyName)
+MyName                   STRING(30)
+!!> GUID('21836537-6e3d-4d93-891d-85ec9b274544'),PROMPT('My Name:'),HEADER('My Name'),PICTURE(@s30),TYPEMODE(INS)
+[PROMPTS]
+%GenerateOpenClose LONG  (0)
+[EMBED]
+EMBED %ProcessedCode
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+OMIT ('!Instructions')
+
+Install the dll into a program where the TestFormat procedure
+has been included as 'external'.
+
+call the procedure TestFormat and it should display some formatted text
+using the message comand
+!Instructions
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+  CodingDate = DATE(8,12,1999)
+  FormatInit(TestBuffer, 3000)
+
+  TestCmd = '.lm 10'
+  FormatText(TestCmd, 10)
+  TestCmd = '.rm 60'
+  FormatText(TestCmd, 10)
+
+  TestCmd = '.ti 10'
+  FormatText(TestCmd, 10)
+  TestStr = 'This is a test of the Text Format module,'
+  FormatText(TestStr, 500)
+
+  TestStr = 'that was described in a book called Software Tools in Pascal,'
+  FormatText(TestStr, 500)
+
+  TestStr = 'written by Kernighan and Plaugher.'
+  FormatText(TestStr, 500)
+
+  TestStr = 'They were Bell Labs software engineers on UNIX software.'
+  FormatText(TestStr, 500)
+
+  TestStr = 'Text Format is a design from roff. Its more sophisticated '
+  FormatText(TestStr, 500)
+
+  TestStr = 'successors were nroff, troff, and ditroff.'
+  FormatText(TestStr, 500)
+
+  TestCmd = '.lm 20'
+  FormatText(TestCmd, 10)
+  TestCmd = '.rm 50'
+  FormatText(TestCmd, 10)
+  TestCmd = '.nj'
+  FormatText(TestCmd, 10)
+  TestCmd = '.sp 1'
+  FormatText(TestCmd, 10)
+
+  TestStr = 'It was coded in Clarion by Michael J. Kuhn on ' &|
+             FORMAT(CodingDate, @D1)                         &|
+            ' using the Pascal code from the book that he saved from a project in' &|
+            ' the early 1980''s.'
+  FormatText(TestStr, 500)
+
+  TestCmd = '.sp 1'
+  FormatText(TestCmd, 10)
+
+  TestCmd = '.rm 60'
+  FormatText(TestCmd, 10)
+  TestCmd = '.ti 10'
+  FormatText(TestCmd, 10)
+  TestStr = 'But wait there''s more. . .'
+  FormatText(TestStr, 500)
+  
+  TestCmd = '.lm 5'
+  FormatText(TestCmd, 10)
+  TestCmd = '.rm 40'
+  FormatText(TestCmd, 10)
+  
+  TestCmd = '.sp 1'
+  FormatText(TestCmd, 10)
+ 
+  RunDate = Today()
+  MyName = 'Michael Kuhn'
+  Donation = 999.99
+
+  TestCmd = '.qu ' & 'RunDate ' & '"' & CLIP(LEFT(FORMAT(RunDate,@D4))) & '"'
+  FormatText(TestCmd, 200)
+  TestCmd = '.qu ' & 'Name ' & '"' & CLIP(MyName) & '"'
+  FormatText(TestCmd, 200)
+  TestCmd = '.qu ' & 'Money ' & CLIP(LEFT(FORMAT(Donation,@N$-14.2)))
+  FormatText(TestCmd, 200)
+
+  TestStr = 'You have run this on <RunDate>, I hope you find the functions useful. ' &|
+            ' If so you might consider sending <Name> a check. A thousand seems too much but ' &|
+            ' <Money> would work and it''s less.'
+  FormatText(TestStr, 500)
+  TestCmd = '.br'     ! some command cause a break if last line does not go then YOU NEED a manual break
+ 
+  FormatText(TestCmd, 10)
+  message(TestBuffer)
+
+! NOTE .ju (justify) does not show using the "message" command because message
+!      must compress out extraneous blanks.
+!      write the text to a file and it should be justified to right margin
+[END]
+[END]
+[END]
